@@ -1,0 +1,35 @@
+{
+  "name": "carono/yii2-1c-exchange",
+  "description": "Yii2 module for the exchange of goods and documents from 1C",
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aleksandr Kasyanov",
+      "email": "info@carono.ru",
+      "homepage": "http://carono.ru"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "yiisoft/yii2": "^2.0",
+    "carono/commerceml": "^0.2.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "carono\\exchange1c\\": ""
+    }
+  },
+  "extra": {
+    "bootstrap": "carono\\exchange1c\\Bootstrap"
+  },
+  "require-dev": {
+    "yiidoc/yii2-redactor": "^2.0"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
