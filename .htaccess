@@ -1,0 +1,24 @@
+Options +FollowSymLinks
+IndexIgnore */*
+
+RewriteEngine on
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index.php
+
+Redirect 301 /files/restaurant_menus/1_doc.pdf /menu/ru
+Redirect 301 /files/restaurant_menus/3_doc.pdf /menu/ru
+Redirect 301 /files/restaurant_menus/6_doc.pdf /menu/ru
+Redirect 301 /files/restaurant_menus/1_doc_en.pdf /menu/en
+Redirect 301 /files/restaurant_menus/3_doc_en.pdf /menu/en
+Redirect 301 /files/restaurant_menus/6_doc_en.pdf /menu/en
+Redirect 301 /files/restaurant_menus/2_doc.pdf /breakfast/ru
+Redirect 301 /files/restaurant_menus/4_doc.pdf /breakfast/ru
+Redirect 301 /files/restaurant_menus/5_doc.pdf /breakfast/ru
+Redirect 301 /files/restaurant_menus/2_doc_en.pdf /breakfast/en
+Redirect 301 /files/restaurant_menus/4_doc_en.pdf /breakfast/en
+Redirect 301 /files/restaurant_menus/5_doc_en.pdf /breakfast/en

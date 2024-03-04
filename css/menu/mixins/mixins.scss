@@ -1,0 +1,78 @@
+@mixin transition($speed: 0.6s, $easing:ease, $delay:0s,$type:all) {
+  transition: $type $speed $easing $delay;
+  -webkit-transition: $type $speed $easing $delay;
+}
+@mixin transitionLinear($speed: 0.7s,$delay:0s) {
+  transition: all $speed linear $delay;
+  -webkit-transition: all $speed linear $delay;
+}
+
+
+@mixin grad($top-color, $bottom-color) {
+  background: $top-color; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($top-color, $bottom-color); /* For Safari 5@mixin 1 to 6@mixin 0 */
+  background: -o-linear-gradient($top-color, $bottom-color); /* For Opera 11@mixin 1 to 12@mixin 0 */
+  background: -moz-linear-gradient($top-color, $bottom-color); /* For Firefox 3@mixin 6 to 15 */
+  background: linear-gradient($top-color, $bottom-color); /* Standard syntax */
+}
+@mixin grad-hor($top-color, $bottom-color) {
+  background: $top-color; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left,$top-color, $bottom-color); /* For Safari 5@mixin 1 to 6@mixin 0 */
+  background: -o-linear-gradient(left,$top-color, $bottom-color); /* For Opera 11@mixin 1 to 12@mixin 0 */
+  background: -moz-linear-gradient(left,$top-color, $bottom-color); /* For Firefox 3@mixin 6 to 15 */
+  background: linear-gradient(to right,$top-color, $bottom-color); /* Standard syntax */
+}
+@mixin translate($x,$y){
+  -webkit-transform: translate3d($x,$y, 0);
+  transform: translate3d($x,$y, 0);
+}
+@mixin translateY($y){
+  -webkit-transform: translate3d(0, $y, 0);
+  transform: translate3d(0, $y, 0);
+}
+@mixin translateX($x){
+  -webkit-transform: translate3d($x,0,0);
+  transform: translate3d($x,0,0);
+}
+@mixin scale($x){
+  -webkit-transform: scale3d($x,$x,$x);
+  transform: scale3d($x,$x,$x);
+}
+@mixin tranScale($x,$y,$s){
+  -webkit-transform: translate3d($x,$y, 0) scale3d($s,$s,$s);
+  transform: translate3d($x,$y, 0) scale3d($s,$s,$s);
+}
+@mixin tranRotate($x,$y,$s){
+  -webkit-transform: translate3d($x,$y, 0) rotateZ($s);
+  transform: translate3d($x,$y, 0) rotateZ($s);
+}
+@mixin tranRotateX($x,$y,$s){
+  -webkit-transform: translate3d($x,$y, 0) rotateX($s);
+  transform: translate3d($x,$y, 0) rotateX($s);
+}
+@mixin rotate ($deg) {
+  transform: rotateZ($deg);
+  -webkit-transform: rotateZ($deg);
+  -o-transform: rotateZ($deg);
+  -moz-transform: rotateZ($deg);
+}
+@mixin rotateY ($deg) {
+  transform: rotateY($deg);
+  -webkit-transform: rotateY($deg);
+  -o-transform: rotateY($deg);
+  -moz-transform: rotateY($deg);
+}
+@mixin rotateX ($deg) {
+  transform: rotateX($deg);
+  -webkit-transform: rotateX($deg);
+  -o-transform: rotateX($deg);
+  -moz-transform: rotateX($deg);
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: calc(#{$expression});
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: -o-calc(#{$expression});
+}
+

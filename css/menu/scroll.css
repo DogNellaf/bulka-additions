@@ -1,0 +1,16 @@
+.products .products-content .filters-container .filters-block.scroll .acc-body {
+  max-height: unset;
+  height: 220px;
+  overflow: hidden;
+}
+
+.products .products-content .filters-container .filters-block .brands-block .checkbox-block {
+  max-height: unset;
+  height: 220px;
+  overflow: hidden;
+
+}
+.products .products-content .filters-container .ss-scroll {
+  width: 6px;
+  border-radius: 3px;
+}

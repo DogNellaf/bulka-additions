@@ -1,0 +1,65 @@
+button {
+  font-family: $mainFont;
+
+}
+input, textarea, select {
+  font-family: $mainFont;
+  font-size: 14px;
+  height: 30px;
+  color: $black;
+  font-weight: 400;
+  padding: 0 10px;
+  -webkit-appearance: none;
+  border: 1px solid $black;
+  margin: 0;
+  resize: none;
+
+
+  &::-webkit-input-placeholder {
+    font-family: $mainFont;
+    font-size: 14px;
+    color: $black;
+    font-weight: 400;
+  }
+  &::-moz-placeholder          {
+    font-family: $mainFont;
+    font-size: 14px;
+    color: $black;
+    font-weight: 400;
+  }/* Firefox 19+ */
+  &:-moz-placeholder           {
+    font-family: $mainFont;
+    font-size: 14px;
+    color: $black;
+    font-weight: 400;
+  }/* Firefox 18- */
+  &:-ms-input-placeholder      {
+    font-family: $mainFont;
+    font-size: 14px;
+    color: $black;
+    font-weight: 400;
+  }
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+textarea {
+  padding: 10px;
+}
+
+html, body {
+  height: 100%;
+  background-color: $white-bg;
+
+}
+
+

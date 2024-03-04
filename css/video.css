@@ -1,0 +1,32 @@
+.video .video-player {
+    display: block;
+    margin: 0 20% 22px 0;
+    min-height: 420px;
+    background: none;
+}
+
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+    margin-top: -22px;
+    margin-left: -16px;
+}
+
+.video-js .vjs-big-play-button {
+    top: 50% !important;
+    left: 50% !important;
+    border: none !important;
+    background-color: none !important;
+    margin-top: -20px !important;
+    margin-left: -45px !important;
+}
+
+.video-js button.vjs-control {
+    margin-top: -15px !important;
+}
+
+.video #bulka-player {
+    margin: 0 auto;
+}
+
+.bulka-player-dimensions {
+    width: 100% !important;
+}

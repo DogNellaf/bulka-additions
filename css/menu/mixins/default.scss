@@ -1,0 +1,88 @@
+*{
+  position: relative;
+  outline: none;
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  padding: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+}
+
+html, body{
+  width: 100%;
+}
+
+body {
+  font-family: $mainFont;
+  font-size: $mainFontSize;
+  //letter-spacing: 0.025em;
+  line-height:1.4;
+  font-weight: 400;
+  background: $white;
+  color: $black;
+
+}
+
+.lock-scroll {
+  overflow: hidden;
+  padding-right: 17px;
+
+  @media screen and (max-width: 960px) {
+    padding-right: 0;
+  }
+
+}
+
+
+a{
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+  &:hover,&:focus,&.active{
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+h1,h2,h3,h4,h5{
+  font-family: $mainFont;
+  font-weight: 600;
+  margin: 0;
+}
+p{
+  margin:10px 0;
+}
+h1{
+  font-size: 60px;
+}
+h2{
+  font-size: 40px;
+}
+//EXTRAS
+
+#ajaxWrapper{
+  width: 100%;
+  min-height: 100vh;
+}
+
+.jq_hidden {
+  @include translateY(150px);
+  opacity: 0;
+  @include transition;
+
+  &.jq_active {
+    @include translateY(0);
+    opacity: 1;
+  }
+}
+
+
+

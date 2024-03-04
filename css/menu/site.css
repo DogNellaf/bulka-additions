@@ -1,0 +1,9 @@
+
+@media screen and (max-width: 960px) {
+  .index .slider-block .product-slider-block .nav-btn {
+    margin-top: -70px;
+  }
+  .index .slider-block .product-slider-block .tns-nav {
+    display: none;
+  }
+}
