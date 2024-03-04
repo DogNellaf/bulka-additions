@@ -33,15 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form_input_block">
                     <?= $form->field($model, 'phone')->textInput(['autofocus' => true, 'placeholder' => $model->getAttributeLabel('username') . ' *'])->label(false); ?>
                 </div>
-                <!-- <div class="form_input_block">
-                    <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => $model->getAttributeLabel('username') . ' *'])->label(false); ?>
-                </div>
-                <div class="form_input_block">
-                    <?= $form->field($model, 'email')->textInput(['placeholder' => $model->getAttributeLabel('email') . ' *'])->label(false); ?>
-                </div>
-                <div class="form_input_block">
-                    <?= $form->field($model, 'password')->passwordInput(['placeholder' => $model->getAttributeLabel('password') . ' *'])->label(false); ?>
-                </div> -->
                 <div class="form_input_block submit_block">
                     <?= Html::submitButton(Yii::t('app', 'Зарегистрироваться'), ['class' => 'common_btn black', 'name' => 'signup-button']) ?>
                 </div>
