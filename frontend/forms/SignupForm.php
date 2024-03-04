@@ -46,6 +46,6 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        return User::signup($this->username, $this->email, $this->password);
+        return User::signup($this->phone);
     }
 }
