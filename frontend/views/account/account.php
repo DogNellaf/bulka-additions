@@ -42,6 +42,11 @@ $user = Yii::$app->user->identity;
                             Избранное
                         </a>
                     </li>
+                    <li class="personal_nav_item">
+                        <a href="#loyalty_program" class="common_btn" data-block="loyalty_program">
+                            Программа лояльности
+                        </a>
+                    </li>
                 </ul>
                 <div class="personal_logout">
                     <a href="<?= Url::to(['account/logout']); ?>" data-method="POST">
@@ -364,6 +369,11 @@ $user = Yii::$app->user->identity;
                             ]); ?>
                         <?php endif; ?>
                     <?php endforeach; ?>
+                </div>
+            </div>
+            <div id="loyalty_program" class="personal_block loyalty_program">
+                <div class="fav_list product_list">
+                    
                 </div>
             </div>
         </div>
