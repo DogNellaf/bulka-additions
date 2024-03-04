@@ -65,7 +65,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['business', 'wholesale'], 'integer'],
             [['company_name'], 'string'],
-            [['username'], 'string'],
+            // [['username'], 'string'],
             [['email'], 'string'],
             [['phone'], 'string'],
             [['inn', 'kpp'], 'string'],
@@ -96,6 +96,11 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findIdentityByAccessToken($token, $type = null)
     {
         throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+    }
+
+    public static function findByPhone($phone)
+    {
+        return static::findOne(['phone' => $phone]);
     }
 
     public static function findByEmail($email)
@@ -146,8 +151,9 @@ class User extends ActiveRecord implements IdentityInterface
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 
-    public function setPassword($password)
+    public function generatePassword()
     {
+        $password = Yii::$app->security->generateRandomString();
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
 
@@ -214,12 +220,12 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->email;
     }
 
-    public static function signup($username, $email, $password)
+    public static function signup($phone)
     {
         $user = new static();
-        $user->email = $email;
-        $user->username = $username;
-        $user->setPassword($password);
+        $user->phone = $phone;
+        // $user->username = $username;
+        $user->generatePassword();
         $user->generateAuthKey();
         $user->save();
         $profile = new UserProfile();
