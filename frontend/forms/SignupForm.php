@@ -14,27 +14,29 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-            ['username', 'trim'],
-            ['username', 'required'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['phone', 'string', 'min' => 11, 'max' => 11],
+            // ['username', 'trim'],
+            // ['username', 'required'],
+            // ['username', 'string', 'min' => 2, 'max' => 255],
 
-            ['email', 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
-            ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\entities\User', 'message' => 'Этот E-mail уже занят другим пользователем.'],
+            // ['email', 'trim'],
+            // ['email', 'required'],
+            // ['email', 'email'],
+            // ['email', 'string', 'max' => 255],
+            // ['email', 'unique', 'targetClass' => '\common\entities\User', 'message' => 'Этот E-mail уже занят другим пользователем.'],
 
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
+            // ['password', 'required'],
+            // ['password', 'string', 'min' => 6],
         ];
     }
 
     public function attributeLabels()
     {
         return [
-            'username' => 'Имя',
-            'email' => 'E-mail',
-            'password' => 'Пароль',
+            'phone' => 'Номер телефона',
+            // 'username' => 'Имя',
+            // 'email' => 'E-mail',
+            // 'password' => 'Пароль',
         ];
     }
 
