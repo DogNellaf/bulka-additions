@@ -7,9 +7,10 @@ use common\entities\User;
 
 class SignupForm extends Model
 {
-    public $username;
-    public $email;
-    public $password;
+    // public $username;
+    // public $email;
+    // public $password;
+    public $phone;
 
     public function rules()
     {
