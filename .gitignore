@@ -23,6 +23,8 @@ Thumbs.db
 # cubrid install dir
 /cubrid
 
+vendor/
+
 # composer itself is not needed
 composer.phar
 
@@ -41,6 +43,8 @@ phpunit.phar
 /apps
 /extensions
 /packages
+
+vendor/
 
 # NPM packages
 /node_modules

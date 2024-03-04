@@ -10,6 +10,7 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+	'homeUrl' => "/",
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
