@@ -372,7 +372,7 @@ $user = Yii::$app->user->identity;
                 </div>
             </div>
             <div id="loyalty_program" class="personal_block loyalty_program">
-            <div class="loyalty-grid">
+                <div class="loyalty-grid">
                     <div class="info-col">
                         <div class="card-info-grid">
                             <div class="info-block">
@@ -399,7 +399,6 @@ $user = Yii::$app->user->identity;
                                     4 500
                                 </div>
                             </div>
-
                             <div class="info-block level-info">
                                 <div class="title">
                                     До следующего уровня
@@ -422,14 +421,8 @@ $user = Yii::$app->user->identity;
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             </div>
-
-
                         </div>
-
                         <div class="stats-block tabs-block">
                             <div class="tabs-head">
                                 <div class="tab-btn">
@@ -474,14 +467,10 @@ $user = Yii::$app->user->identity;
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
                     <div class="card-col">
                         <div class="card-block">
                             <div class="card-logo icon-logo"></div>
-
                             <div class="val-container" style="background: url(/files/front/images.jpg)">
                                 <div class="val-block">
                                     <div class="val">
@@ -491,33 +480,23 @@ $user = Yii::$app->user->identity;
                                         Баланс
                                     </div>
                                 </div>
-
                                 <div class="slogan font_2">
                                     Ешь настоящее, живи настоящим
                                 </div>
-
-
                             </div>
-
                             <div class="qr-block">
                                 <img src="/files/front/qr.png" alt="">
                             </div>
-
-
                         </div>
-
                     </div>
-
                     <div class="ctrls-col">
                         <a href="#" class="common_btn revert">
                             ДОБАВИТЬ В wallet
                         </a>
-
                         <a href="#" class="loyalty-btn">
                             О программе лояльности
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
