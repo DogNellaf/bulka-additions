@@ -15,7 +15,7 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-            ['phone', 'string', 'min' => 11, 'max' => 11],
+            ['phone', 'string', 'min' => 18, 'max' => 18],
             // ['username', 'trim'],
             // ['username', 'required'],
             // ['username', 'string', 'min' => 2, 'max' => 255],
