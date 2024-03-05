@@ -382,7 +382,7 @@ $user = Yii::$app->user->identity;
                                         Уровень
                                     </div>
                                     <div class="value">
-                                        1
+                                        <?= $loyalty['group_name']; ?>
                                     </div>
                                 </div>
                                 <div class="info-block">
@@ -419,7 +419,7 @@ $user = Yii::$app->user->identity;
                                         </div>
                                         <div class="line-row">
                                             <div class="line">
-                                                <div class="progress-line" style="width: 35%"></div>
+                                                <div class="progress-line" style="width: 0%"></div>
                                             </div>
                                         </div>
                                     </div>

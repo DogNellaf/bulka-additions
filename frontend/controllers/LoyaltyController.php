@@ -83,18 +83,4 @@ class LoyaltyController extends FrontendController
 
         return $this->redirect('/account/');
     }
-
-    public function actionWallet($id)
-    {
-        $this->setMeta('Кошелек');
-
-        return $this->renderAjax('wallet');
-    }
-
-    public function actionAbout()
-    {
-        $this->setMeta('О программе лояльности');
-
-        return $this->renderAjax('about');
-    }
 }

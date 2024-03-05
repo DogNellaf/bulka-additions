@@ -35,13 +35,13 @@ class LoyaltyApi extends Component
                 ]);
     }
 
-    // buyer-info request
+    // buyer-info-detail request
     public function getInfo($phone)
     {
         $phone = $this->getClearedPhone($phone);
         $response = $this
                     ->getHttpClient()
-                    ->setUrl('buyer-info')
+                    ->setUrl('buyer-info-detail')
                     ->setData([
                         'identificator' => $phone
                     ])
@@ -53,31 +53,11 @@ class LoyaltyApi extends Component
         $this->log($success);
 
         if ($success == True) {
-            // $buyerDTO = new BuyerInfo();
-            // $buyerDTO->$is_registered = $data['is_registered'];
-            // $buyerDTO->$blocked = $data['blocked'];
-            // $buyerDTO->$phone = $data['phone'];
-            // $buyerDTO->$name = $data['name'];
-            // $buyerDTO->$email = $data['email'];
-            // $buyerDTO->$balance = $data['balance'];
-            // $buyerDTO->$balance_bonus_accumulated = $data['balance_bonus_accumulated'];
-            // $buyerDTO->$balance_bonus_present = $data['balance_bonus_present'];
-            // $buyerDTO->$balance_bonus_action = $data['balance_bonus_action'];
-            // $buyerDTO->$bonus_inactive = $data['bonus_inactive'];
-            // $buyerDTO->$bonus_next_activation_text = $data['bonus_next_activation_text'];
-            // $buyerDTO->$additional_info = $data['additional_info'];
             return $data;
         }
 
         Yii::error($data['error_description']);
         return $success;
-    }
-
-    // buyer-info-detail request
-    public function getInfoDetail($phone)
-    {
-        $phone = $this->getClearedPhone($phone);
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
     }
 
     // buyer-register request
