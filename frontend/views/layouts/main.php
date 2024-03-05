@@ -117,6 +117,13 @@ if (!Yii::$app->session['orig_ref']) {
 
     <meta name="facebook-domain-verification" content="qo1vl84m2fmey0ktf8kl9h03vuxvgc" />
 
+    <script src="/js/vendor/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="/js/vendor/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <script src="/js/vendor/slick.min.js" type="text/javascript"></script>
+    <script src="/js/vendor/ion.rangeSlider.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@20.3.0/dist/js/jquery.suggestions.min.js" type="text/javascript"></script>
+    <script src="/js/card-script.js" type="text/javascript"></script>
+
     <?php $this->head() ?>
 </head>
 <body>
