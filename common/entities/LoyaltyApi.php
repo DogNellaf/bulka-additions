@@ -51,7 +51,7 @@ class LoyaltyApi extends Component
             Yii::error($data['error_description']);
         }
 
-        if ($response->isOk && $success == True) {
+        if ($success == True) {
             $buyerDTO = new BuyerInfo();
             $buyerDTO->$identificator_type = ['identificator_type'];
             $buyerDTO->$is_register = $data['is_register'];
@@ -75,6 +75,7 @@ class LoyaltyApi extends Component
             $buyerDTO->$phone_checked = $data['phone_checked'];
             $buyerDTO->$additional_info = $data['additional_info'];
             $buyerDTO->$is_refused_receive_messages = $data['is_refused_receive_messages'];
+            Yii::info('ababa'.$buyerDTO->phone);
             return $buyerDTO;
         }
         return $success;
