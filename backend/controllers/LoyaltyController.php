@@ -11,9 +11,16 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\httpclient\Client;
+use common\entities\LoyaltyApi;
 
 class OrdersController extends Controller
 {
+    private _loyaltyApi;
+    public OrderController() {
+        _loyaltyApi = new LoyaltyApi();
+    }
+
     public function behaviors()
     {
         return [
@@ -30,12 +37,15 @@ class OrdersController extends Controller
     }
 
     // buyer-info request
-    public function getInfo($phone)
+    public function getInfo()
     {
-        // if (($model = User::findOne($id)) !== null) {
-        //     return $model;
-        // }
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        $request = Yii::$app->request;
+        if ($request->isPost) {
+            $params = $request->bodyParams;
+            $phone = $request->getBodyParam('phone');
+            return $this->_loyaltyApi->getInfo($phone)
+        }
+        throw new BadRequestHttpException;
     }
 
     // buyer-info-detail request
@@ -44,7 +54,7 @@ class OrdersController extends Controller
         // if (($model = Orders::findOne($id)) !== null) {
         //     return $model;
         // }
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        
     }
 
     // buyer-register request
