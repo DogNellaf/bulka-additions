@@ -26,7 +26,14 @@ $.noConflict();
 <script src="/js/card-script.js" type="text/javascript"></script>
 
 <div id="cart" class="cart page padded padded_bottom">
-
+<input id="demo_0" type="text" name="" value="" class="irs-hidden-input" tabindex="-1" readonly="">
+<script>
+ $("#demo_0").ionRangeSlider({
+        min: 100,
+        max: 1000,
+        from: 550
+    });
+</script>
     <div class="page_header">
         <div class="wrapper">
             <div class="title title_1 font_2">
