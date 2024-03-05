@@ -37,6 +37,11 @@ class LoyaltyController extends FrontendController
         ];
     }
 
+    protected function checkRegistered($phone) {
+        $loyalty = new LoyaltyApi();
+        return $loyalty->getInfo($phone)['is_registered'];
+    }
+
     public function actionRegister()
     {
         $this->setMeta('Регистрация в бонусной системе');
@@ -44,9 +49,7 @@ class LoyaltyController extends FrontendController
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
 
-        $is_registered = $loyalty->getInfo($user->phone)->is_registered;
-
-        if ($is_registered == True) {
+        if (checkRegistered($user->phone) == True) {
             throw new ForbiddenHttpException('Вы уже были зарегистрированы');
         }
 
@@ -61,9 +64,7 @@ class LoyaltyController extends FrontendController
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
 
-        $is_registered = $loyalty->getInfo($user->phone)->is_registered;
-
-        if ($is_registered == True) {
+        if (checkRegistered($user->phone) == True) {
             throw new ForbiddenHttpException('Вы уже были зарегистрированы');
         }
 

@@ -51,26 +51,25 @@ class LoyaltyApi extends Component
         $success = $data['success'];
 
         $this->log($success);
-        if ($success == False) {
-            Yii::error($data['error_description']);
-        }
 
         if ($success == True) {
-            $buyerDTO = new BuyerInfo();
-            $buyerDTO->$is_registered = $data['is_registered'];
-            $buyerDTO->$blocked = $data['blocked'];
-            $buyerDTO->$phone = $data['phone'];
-            $buyerDTO->$name = $data['name'];
-            $buyerDTO->$email = $data['email'];
-            $buyerDTO->$balance = $data['balance'];
-            $buyerDTO->$balance_bonus_accumulated = $data['balance_bonus_accumulated'];
-            $buyerDTO->$balance_bonus_present = $data['balance_bonus_present'];
-            $buyerDTO->$balance_bonus_action = $data['balance_bonus_action'];
-            $buyerDTO->$bonus_inactive = $data['bonus_inactive'];
-            $buyerDTO->$bonus_next_activation_text = $data['bonus_next_activation_text'];
-            $buyerDTO->$additional_info = $data['additional_info'];
-            return $buyerDTO;
+            // $buyerDTO = new BuyerInfo();
+            // $buyerDTO->$is_registered = $data['is_registered'];
+            // $buyerDTO->$blocked = $data['blocked'];
+            // $buyerDTO->$phone = $data['phone'];
+            // $buyerDTO->$name = $data['name'];
+            // $buyerDTO->$email = $data['email'];
+            // $buyerDTO->$balance = $data['balance'];
+            // $buyerDTO->$balance_bonus_accumulated = $data['balance_bonus_accumulated'];
+            // $buyerDTO->$balance_bonus_present = $data['balance_bonus_present'];
+            // $buyerDTO->$balance_bonus_action = $data['balance_bonus_action'];
+            // $buyerDTO->$bonus_inactive = $data['bonus_inactive'];
+            // $buyerDTO->$bonus_next_activation_text = $data['bonus_next_activation_text'];
+            // $buyerDTO->$additional_info = $data['additional_info'];
+            return $data;
         }
+
+        Yii::error($data['error_description']);
         return $success;
     }
 
