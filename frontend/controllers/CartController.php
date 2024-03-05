@@ -42,7 +42,7 @@ class CartController extends FrontendController
         $post = Yii::$app->request->post();
         $bonuses = $post['bonuses'];
         $this->cart->setBonuses($bonuses);
-        Yii::$app->session->setFlash('success', $bonuses); //'Бонусы применены'
+        Yii::$app->session->setFlash('success', $this->cart->getBonuses()); //'Бонусы применены'
         return $this->redirect(Yii::$app->request->referrer);
     }
 
