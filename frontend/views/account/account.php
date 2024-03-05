@@ -470,24 +470,6 @@ $user = Yii::$app->user->identity;
                                 </div>
                             </div>
                         </div>
-                        <div class="card-col">
-                            <div class="card-block">
-                                <div class="card-logo icon-logo"></div>
-                                <div class="val-container" style="background: url(/files/front/images.jpg)">
-                                    <div class="val-block">
-                                        <div class="val">
-                                            <?= $loyalty['balance']; ?>
-                                        </div>
-                                        <div class="title">
-                                            Баланс
-                                        </div>
-                                    </div>
-                                    <div class="slogan font_2">
-                                        Ешь настоящее, живи настоящим
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 <?php else: ?>
                     <div class="no-loyalty-block">
