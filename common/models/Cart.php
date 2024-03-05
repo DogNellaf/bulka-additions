@@ -159,7 +159,7 @@ class Cart
             }
             $cost += $item->getCost();
         }
-        return $cost - $this->$bonuses;
+        return $cost - $this->getBonuses();
     }
 
     public function getTotalCost()
@@ -167,7 +167,7 @@ class Cart
         $cost = $this->getCost();
         /* @var $cost_module \common\entities\Modules */
         $cost_module = Modules::findOne(9);
-        if ($cost < $cost_module->min_order_sum - $this->$bonuses) {
+        if ($cost < $cost_module->min_order_sum) {
             return false;
         }
         return $cost;
@@ -183,7 +183,7 @@ class Cart
         $cost = $this->getCost();
         /* @var $cost_module \common\entities\Modules */
         $cost_module = Modules::findOne(9);
-        if ($cost < $cost_module->min_order_sum - $this->$bonuses) {
+        if ($cost < $cost_module->min_order_sum) {
             return false;
         }
         return true;
