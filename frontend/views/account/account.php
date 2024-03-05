@@ -499,7 +499,7 @@ $user = Yii::$app->user->identity;
                             </a>
                         </div>
                     </div>
-                <?php else; ?>
+                <?php else ?>
                     <div class="no-loyalty-block">
                         <h4>
                             Вы пока не состоите в программе лояльности
