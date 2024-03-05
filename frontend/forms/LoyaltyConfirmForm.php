@@ -33,8 +33,8 @@ class LoyaltyConfirmForm extends Model
             return null;
         }
 
-        $loyalty = new LoyaltyApi();
+        // $loyalty = new LoyaltyApi();
 
-        return $loyalty.
+        // return $loyalty.
     }
 }

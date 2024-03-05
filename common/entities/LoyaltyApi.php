@@ -82,6 +82,9 @@ class LoyaltyApi extends Component
                         'email' => $user->email
                     ])
                     ->send();
+        $data = $response->data;
+        Yii::debug($data['success']);
+        return $data['success'];
     }
 
     // buyer-edit request

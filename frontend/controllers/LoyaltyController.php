@@ -41,7 +41,7 @@ class LoyaltyController extends FrontendController
         ];
     }
 
-    public function actionConfirm()
+    public function actionRegister()
     {
         $this->setMeta('Регистрация в бонусной системе');
 
@@ -64,7 +64,7 @@ class LoyaltyController extends FrontendController
         ]);
     }
 
-    public function actionRegister()
+    public function actionConfirm()
     {
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
