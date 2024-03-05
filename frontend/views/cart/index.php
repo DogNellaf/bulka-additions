@@ -216,10 +216,10 @@ $cost_module = \common\entities\Modules::findOne(9);
                                         grid: true,
                                         from_max: 750,      // set max position for FROM handle
                                         onStart: function (data) {
-                                            bonuses.value = slider.value.split(';')[1];
+                                            bonuses.value = slider.value;
                                         },
                                         onChange: function (data) {
-                                            bonuses.value = slider.value.split(';')[1];
+                                            bonuses.value = slider.value;
                                         },
                                     });
                                 </script>
