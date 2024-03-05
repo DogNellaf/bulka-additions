@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\widgets\MaskedInput;
+use yii\helpers\Json;
 
 /* @var $this yii\web\View */
 /* @var $model \frontend\forms\AccountForm */
@@ -503,7 +504,7 @@ $user = Yii::$app->user->identity;
                     <div class="no-loyalty-block">
                         <h4>
                             <p><?= $loyalty['phone']; ?></p>
-                            <p><?= $loyalty; ?></p>
+                            <p><?= Json::encode($loyalty); ?></p>
                             Вы пока не состоите в программе лояльности
                         </h4>
                         <div class="descr">
