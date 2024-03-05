@@ -8,32 +8,41 @@ use yii\httpclient\Client;
 
 class LoyaltyApi extends Component
 {
-    public function getHttpClient()
-    {
-        $token = Yii::$app->params['loyaltyApi']['token'];
-        $url = Yii::$app->params['loyaltyApi']['url'];
-        $client = new Client(['baseUrl' => $url]);
-        $request = $client
-                   ->createRequest()
-                   ->setMethod('POST')
-                   ->setFormat(Client::FORMAT_JSON)
-                   ->setHeaders([
-                        'Accept' => 'application/json',
-                        'Authorization' => $token,
-                   ]);
-        return $client;
-    }
+    // public function getHttpClient()
+    // {
+    //     $token = Yii::$app->params['loyaltyApi']['token'];
+    //     $url = Yii::$app->params['loyaltyApi']['url'];
+    //     $client = new Client(['baseUrl' => $url]);
+    //     return $client
+    //             ->createRequest()
+    //             ->setMethod('POST')
+    //             ->setFormat(Client::FORMAT_JSON)
+    //             ->setHeaders([
+    //                 'Accept' => 'application/json',
+    //                 'Authorization' => $token,
+    //             ]);
+    // }
 
     // buyer-info request
     public function getInfo($phone)
     {
-        $response = $this
-            ->getHttpClient()
-            ->setUrl('buyer-info')
-            ->setData([
-                'identificator' => $phone
-            ])
-            ->send();
+        $token = Yii::$app->params['loyaltyApi']['token'];
+        $url = Yii::$app->params['loyaltyApi']['url'];
+        $client = new Client(['baseUrl' => $url]);
+        $response $client
+                ->createRequest()
+                ->setMethod('POST')
+                ->setFormat(Client::FORMAT_JSON)
+                ->setHeaders([
+                    'Accept' => 'application/json',
+                    'Authorization' => $token,
+                ])
+                ->getHttpClient()
+                ->setUrl('buyer-info')
+                ->setData([
+                    'identificator' => $phone
+                ])
+                ->send();
 
         if ($response->isOk) {
             $data = $data;
