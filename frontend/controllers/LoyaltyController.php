@@ -44,6 +44,12 @@ class LoyaltyController extends FrontendController
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
 
+        $is_registered = $loyalty->getInfo($user->phone)->is_registered;
+
+        if ($is_registered == True) {
+            throw new ForbiddenHttpException('Вы уже были зарегистрированы');
+        }
+
         $result = $loyalty->register($user);
         Yii::info('ababa'.Json::encode($result));
 
@@ -56,6 +62,12 @@ class LoyaltyController extends FrontendController
     {
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
+
+        $is_registered = $loyalty->getInfo($user->phone)->is_registered;
+
+        if ($is_registered == True) {
+            throw new ForbiddenHttpException('Вы уже были зарегистрированы');
+        }
 
         $request = Yii::$app->request;
         $num1 = $request->post('num1');
