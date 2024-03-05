@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\forms\SignupForm */
 
-$this->title = 'Регистрация';
+$this->title = 'Регистрация в бонусной системе';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <p>Заполните следующие поля для регистрации:</p>
             <br>
 
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+            <?php $form = ActiveForm::begin(['id' => 'form-loyalty-register']); ?>
 
             <div class="form_input_wrap">
 
