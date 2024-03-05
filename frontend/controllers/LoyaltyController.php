@@ -43,6 +43,10 @@ class LoyaltyController extends FrontendController
 
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
+
+        $result = $loyalty->register($user);
+        Yii::info(Json::encode($result));
+
         $code = $loyalty->sendRegisterCode($user->phone);
 
         return $this->render('register');
@@ -64,8 +68,6 @@ class LoyaltyController extends FrontendController
         if ($result == False) {
             return $this->redirect('/loyalty/register');
         }
-        
-        $loyalty->register($user);
 
         return $this->redirect('/account/');
     }
