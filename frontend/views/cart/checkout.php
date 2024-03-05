@@ -441,7 +441,7 @@ $isSumEnoughForDelivery = true;
                                                         </td>
                                                         <td>
                                                             <div class="hidden">
-                                                                <?= Service::formatPrice($cart->getBonuses()) ?>
+                                                                -<?= Service::formatPrice($cart->getBonuses()) ?>
                                                             </div>
                                                             <span class="checkout_bonuses" data-cost="0"><span class="ico icon-coins"></span> <?= Service::formatPrice($cart->getBonuses()) ?></span>
                                                         </td>
