@@ -140,7 +140,7 @@ class LoyaltyApi extends Component
                 ->getHttpClient()
                 ->setUrl('send-register-code')
                 ->setData([
-                    'phone' => $user->phone
+                    'Phone' => $user->phone
                 ])
                 ->send();
         $data = $response->data;
@@ -165,8 +165,8 @@ class LoyaltyApi extends Component
                 ->getHttpClient()
                 ->setUrl('verify-confirmation-code')
                 ->setData([
-                    'phone' => $phone,
-                    'code' => $code
+                    'Phone' => $phone,
+                    'Code' => $code
                 ])
                 ->send();
         $data = $response->data;
