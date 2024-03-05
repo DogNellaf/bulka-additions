@@ -437,6 +437,17 @@ $isSumEnoughForDelivery = true;
                                                     </tr>
                                                     <tr>
                                                         <td>
+                                                            СПИШЕТСЯ БАЛЛОВ
+                                                        </td>
+                                                        <td>
+                                                            <div class="hidden">
+                                                                500
+                                                            </div>
+                                                            <span class="checkout_bonuses" data-cost="<?= Service::formatPrice($cart->getBonuses()) ?>"><span class="ico icon-coins"></span> <?= Service::formatPrice($cart->getBonuses()) ?></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
                                                             Итого:
                                                         </td>
                                                         <td class="checkout_total_cost">
