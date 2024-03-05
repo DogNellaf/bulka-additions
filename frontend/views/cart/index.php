@@ -202,15 +202,18 @@ $cost_module = \common\entities\Modules::findOne(9);
                             Списать:
                             <div class="bones-container">
                                 <div class="range-block">
-                                    <input type="text" class="js-range-slider" name="my_range" value="" />
+                                    <input type="text" id="slider" class="js-range-slider" name="my_range" value="" />
                                     <script>
                                         $(".js-range-slider").ionRangeSlider({
-                                            type: "double",
+                                            type: "integer",
                                             min: 0,
                                             max: 1000,
-                                            from: 200,
+                                            from: 0,
                                             to: 500,
-                                            grid: true
+                                            grid: true,
+                                            onChange: function (data) {
+                                                bonuses.value = slider.value;
+                                            },
                                         });
                                     </script>
                                 </div>
