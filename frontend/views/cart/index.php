@@ -15,8 +15,19 @@ $user = Yii::$app->user->identity;
 $cost_module = \common\entities\Modules::findOne(9);
 ?>
 
-<script src="/js/vendor/jquery-3.1.1.min.js" type="text/javascript"></script>
-<script src="/js/vendor/ion.rangeSlider.min.js" type="text/javascript"></script>
+<!--Plugin CSS file with desired skin-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+
+<!--jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!--Plugin JavaScript file-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+
+<input type="text" class="js-range-slider" name="my_range" value="" />
+<script>
+        $(".js-range-slider").ionRangeSlider();
+</script>
 
 <div id="cart" class="cart page padded padded_bottom">
 
