@@ -24,11 +24,6 @@ $cost_module = \common\entities\Modules::findOne(9);
 <!--Plugin JavaScript file-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
 
-<input type="text" class="js-range-slider" name="my_range" value="" />
-<script>
-        $(".js-range-slider").ionRangeSlider();
-</script>
-
 <div id="cart" class="cart page padded padded_bottom">
 
     <div class="page_header">
@@ -210,7 +205,7 @@ $cost_module = \common\entities\Modules::findOne(9);
                             Списать:
                             <div class="bones-container">
                                 <div class="range-block">
-                                    <span class="irs irs--flat js-irs-0 irs-with-grid">
+                                    <!-- <span class="irs irs--flat js-irs-0 irs-with-grid">
                                         <span class="irs">
                                             <span class="irs-line" tabindex="0"></span>
                                             <span class="irs-min" style="visibility: hidden;">0</span>
@@ -257,6 +252,11 @@ $cost_module = \common\entities\Modules::findOne(9);
                                         </span> 
                                     </span>
                                     <input type="number" id="range_input" data-max="4999" class="irs-hidden-input" tabindex="-1" readonly="">
+                                 -->
+                                 <input type="text" class="js-range-slider" name="my_range" value="" />
+                                <script>
+                                        $(".js-range-slider").ionRangeSlider();
+                                </script>
                                 </div>
                             </div>
                             <div class="bonuses-val">
