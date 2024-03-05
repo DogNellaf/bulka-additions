@@ -203,26 +203,26 @@ $cost_module = \common\entities\Modules::findOne(9);
                             <div class="bones-container">
                                 <div class="range-block">
                                     <input type="text" id="slider" class="js-range-slider" value="" />
-                                    <script>
-                                        $(".js-range-slider").ionRangeSlider({
-                                            type: "single",
-                                            min: 0,
-                                            max: 4449,
-                                            from: 500,
-                                            grid: true,
-                                            from_max: 750,      // set max position for FROM handle
-                                            onStart: function (data) {
-                                                bonuses.value = slider.value.split(';')[1];
-                                            },
-                                            onChange: function (data) {
-                                                bonuses.value = slider.value.split(';')[1];
-                                            },
-                                        });
-                                    </script>
                                 </div>
                             </div>
                             <div class="bonuses-val">
                                 <input type="number" name="bonuses" id="bonuses" value="0">
+                                <script>
+                                    $(".js-range-slider").ionRangeSlider({
+                                        type: "single",
+                                        min: 0,
+                                        max: 4449,
+                                        from: 500,
+                                        grid: true,
+                                        from_max: 750,      // set max position for FROM handle
+                                        onStart: function (data) {
+                                            bonuses.value = slider.value.split(';')[1];
+                                        },
+                                        onChange: function (data) {
+                                            bonuses.value = slider.value.split(';')[1];
+                                        },
+                                    });
+                                </script>
                             </div>
                         </div>
                         <div class="tip">
