@@ -48,9 +48,12 @@ class LoyaltyController extends FrontendController
     {
         $this->setMeta('Регистрация в бонусной системе');
 
-        $model = new AccountForm();
+        $model = new LoyaltyRegisterForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()){
+
+                // TODO
+
                 if ($model->editAccount()) {
                     Yii::$app->session->setFlash('success', 'Изменения приняты.');
                 } else {
@@ -91,9 +94,7 @@ class LoyaltyController extends FrontendController
                 return $this->redirect(['index']);
             }
         }
-        return $this->renderAjax('confirm', [
-            'model' => $model,
-        ]);
+        return $this->redirect()
     }
 
     public function actionWallet($id)
