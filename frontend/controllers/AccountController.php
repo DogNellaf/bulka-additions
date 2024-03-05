@@ -50,7 +50,7 @@ class AccountController extends FrontendController
 
     protected function getLoyaltyInfo()
     {
-        $phone = Yii::$app->user->identity->$phone;
+        $phone = Yii::$app->user->identity->phone;
         return $this->getLoyaltyApi()->getInfo($phone);
     }
 
