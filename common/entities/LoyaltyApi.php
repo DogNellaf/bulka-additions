@@ -10,8 +10,8 @@ class LoyaltyApi extends Component
 {
     public function getHttpClient()
     {
-        $token = Yii::$app->params['components']['loyaltyApi']['token'];
-        $url = Yii::$app->params['components']['loyaltyApi']['url'];
+        $token = Yii::$app->params['loyalty']['token'];
+        $url = Yii::$app->params['loyalty']['url'];
         $client = new Client(['baseUrl' => $url]); //'https://site-v2.apipb.ru/buyer-info'
         return $client
                 ->createRequest()
