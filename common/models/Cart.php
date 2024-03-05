@@ -152,7 +152,7 @@ class Cart
             }
             $cost += $item->getCost();
         }
-        return $cost - $bonuses;
+        return $cost - $this->$bonuses;
     }
 
     public function getTotalCost()
