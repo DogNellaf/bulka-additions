@@ -503,11 +503,11 @@ $user = Yii::$app->user->identity;
                 <?php else: ?>
                     <div class="no-loyalty-block">
                         <h4>
-                            <p><?= $loyalty['phone']; ?></p>
-                            <p><?= Json::encode($loyalty); ?></p>
                             Вы пока не состоите в программе лояльности
                         </h4>
                         <div class="descr">
+                            <p><?= $loyalty['phone']; ?></p>
+                            <p><?= Json::encode($loyalty); ?></p>
                             Зарегистрируйтесь, чтобы собирать бонусы и получать скидки
                         </div>
                         <a href="<?= Url::to(['loyalty/register']); ?>" class="common_btn">
