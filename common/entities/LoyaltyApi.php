@@ -4,9 +4,6 @@ use yii\httpclient\Client;
 
 class LoyaltyApi extends Component
 {
-    private $token = Yii::$app->params['loyaltyApi']['token'];
-    private $baseUrl = Yii::$app->params['loyaltyApi']['url'];
-
     public function getHttpClient()
     {
         $token = Yii::$app->params['loyaltyApi']['token'];
