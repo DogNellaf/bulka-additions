@@ -108,7 +108,7 @@ class LoyaltyApi extends Component
         if ($success == False) {
             Yii::error($data['error_description']);
         }
-        return $success;
+        return $response;
     }
 
     // buyer-edit request

@@ -43,6 +43,9 @@ class LoyaltyController extends FrontendController
 
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
+
+        $loyalty->register($user);
+
         $code = $loyalty->sendRegisterCode($user->phone);
 
         return $this->render('register');
@@ -65,7 +68,7 @@ class LoyaltyController extends FrontendController
             return $this->redirect('/loyalty/register');
         }
         
-        return $this->goHome();
+        return Json::encode($loyalty);
     }
 
     public function actionWallet($id)
