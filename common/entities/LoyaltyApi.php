@@ -26,43 +26,48 @@ class LoyaltyApi extends Component
     // buyer-info request
     public function getInfo($phone)
     {
-        $response = $this->getHttpClient()
+        $response = $this
+                    ->getHttpClient()
                     ->setUrl('buyer-info')
                     ->setData([
                         'identificator' => $phone
                     ])
                     ->send();
 
-        if ($response->isOk) {
-            $data = $data;
-            $success = $response->data['success'];
-            if ($success == True) {
-                $buyerDTO = new BuyerInfo();
-                $buyerDTO->$identificator_type = ['identificator_type'];
-                $buyerDTO->$is_register = $data['is_register'];
-                $buyerDTO->$blocked = $data['blocked'];
-                $buyerDTO->$phone = $data['phone'];
-                $buyerDTO->$name = $data['name'];
-                $buyerDTO->$gender = $data['gender'];
-                $buyerDTO->$birth_date = $data['birth_date'];
-                $buyerDTO->$email = $data['email'];
-                $buyerDTO->$groip_id = $data['groip_id'];
-                $buyerDTO->$group_name = $data['group_name'];
-                $buyerDTO->$balance = $data['balance'];
-                $buyerDTO->$balance_bonus_accumulated = $data['balance_bonus_accumulated'];
-                $buyerDTO->$balance_bonus_present = $data['balance_bonus_present'];
-                $buyerDTO->$balance_bonus_action = $data['balance_bonus_action'];
-                $buyerDTO->$bonus_inactive = $data['bonus_inactive'];
-                $buyerDTO->$bonus_next_activation_text = $data['bonus_next_activation_text'];
-                $buyerDTO->$write_off_confirmation_required = $data['write_off_confirmation_required'];
-                $buyerDTO->$registration_confirmation_required = $data['registration_confirmation_required'];
-                $buyerDTO->$is_allowed_change_card = $data['is_allowed_change_card'];
-                $buyerDTO->$phone_checked = $data['phone_checked'];
-                $buyerDTO->$additional_info = $data['additional_info'];
-                $buyerDTO->$is_refused_receive_messages = $data['is_refused_receive_messages'];
-                return $buyerDTO;
-            }
+        $data = $data;
+        $success = $response->data['success'];
+
+        if ($response->isOk && $success == True) {
+            $buyerDTO = new BuyerInfo();
+            $buyerDTO->$identificator_type = ['identificator_type'];
+            $buyerDTO->$is_register = $data['is_register'];
+            $buyerDTO->$blocked = $data['blocked'];
+            $buyerDTO->$phone = $data['phone'];
+            $buyerDTO->$name = $data['name'];
+            $buyerDTO->$gender = $data['gender'];
+            $buyerDTO->$birth_date = $data['birth_date'];
+            $buyerDTO->$email = $data['email'];
+            $buyerDTO->$groip_id = $data['groip_id'];
+            $buyerDTO->$group_name = $data['group_name'];
+            $buyerDTO->$balance = $data['balance'];
+            $buyerDTO->$balance_bonus_accumulated = $data['balance_bonus_accumulated'];
+            $buyerDTO->$balance_bonus_present = $data['balance_bonus_present'];
+            $buyerDTO->$balance_bonus_action = $data['balance_bonus_action'];
+            $buyerDTO->$bonus_inactive = $data['bonus_inactive'];
+            $buyerDTO->$bonus_next_activation_text = $data['bonus_next_activation_text'];
+            $buyerDTO->$write_off_confirmation_required = $data['write_off_confirmation_required'];
+            $buyerDTO->$registration_confirmation_required = $data['registration_confirmation_required'];
+            $buyerDTO->$is_allowed_change_card = $data['is_allowed_change_card'];
+            $buyerDTO->$phone_checked = $data['phone_checked'];
+            $buyerDTO->$additional_info = $data['additional_info'];
+            $buyerDTO->$is_refused_receive_messages = $data['is_refused_receive_messages'];
+            return $buyerDTO;
         }
+        Yii::debug($success);
+        if ($success == False) {
+            Yii::debug($data['error_description']);
+        }
+        return $success;
     }
 
     // buyer-info-detail request
@@ -74,7 +79,8 @@ class LoyaltyApi extends Component
     // buyer-register request
     public function register($user)
     {
-        $response = $this->getHttpClient()
+        $response = $this
+                    ->getHttpClient()
                     ->setUrl('buyer-info')
                     ->setData([
                         'phone' => $user->phone,
@@ -83,8 +89,12 @@ class LoyaltyApi extends Component
                     ])
                     ->send();
         $data = $response->data;
-        Yii::debug($data['success']);
-        return $data['success'];
+        $success = $data['success'];
+        Yii::debug($success);
+        if ($success == False) {
+            Yii::debug($data['error_description']);
+        }
+        return $success;
     }
 
     // buyer-edit request
@@ -123,10 +133,23 @@ class LoyaltyApi extends Component
         throw new NotFoundHttpException('Запрошенная вами страница не существует.');
     }
 
-    // send-register-info request   
+    // send-register-code request   
     public function sendRegisterCode($phone)
     {
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        $response = $this
+                ->getHttpClient()
+                ->setUrl('send-register-code')
+                ->setData([
+                    'phone' => $user->phone
+                ])
+                ->send();
+        $data = $response->data;
+        $success = $data['success'];
+        Yii::debug($success);
+        if ($success == False) {
+            Yii::debug($data['error_description']);
+        }
+        return $success;
     }
 
     // send-write-off-confirmation-code request
@@ -138,6 +161,20 @@ class LoyaltyApi extends Component
     // verify-confirmation-code request
     public function verifyConfirmationCode($phone, $code)
     {
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        $response = $this
+                ->getHttpClient()
+                ->setUrl('verify-confirmation-code')
+                ->setData([
+                    'phone' => $phone,
+                    'code' => $code
+                ])
+                ->send();
+        $data = $response->data;
+        $success = $data['success'];
+        Yii::debug($success);
+        if ($success == False) {
+            Yii::debug($data['error_description']);
+        }
+        return $success;
     }
 }
