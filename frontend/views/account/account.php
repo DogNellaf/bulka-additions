@@ -479,7 +479,7 @@ $user = Yii::$app->user->identity;
                                             <?= $loyalty['balance']; ?>
                                         </div>
                                         <div class="title">
-                                            Баланс
+                                            Баланс<p><?= Json::encode();; ?></p>
                                         </div>
                                     </div>
                                     <div class="slogan font_2">
@@ -503,7 +503,6 @@ $user = Yii::$app->user->identity;
                 <?php else: ?>
                     <div class="no-loyalty-block">
                         <h4>
-                            <p><?= Json::encode();; ?></p>
                             Вы пока не состоите в программе лояльности
                         </h4>
                         <div class="descr">
