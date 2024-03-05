@@ -372,132 +372,134 @@ $user = Yii::$app->user->identity;
                 </div>
             </div>
             <div id="loyalty_program" class="personal_block loyalty_program">
-                <div class="loyalty-grid">
-                    <div class="info-col">
-                        <div class="card-info-grid">
-                            <div class="info-block">
-                                <div class="title">
-                                    Уровень
-                                </div>
-                                <div class="value">
-                                    1
-                                </div>
-                            </div>
-                            <div class="info-block">
-                                <div class="title">
-                                    Кэшбек
-                                </div>
-                                <div class="value">
-                                    2%
-                                </div>
-                            </div>
-                            <div class="info-block">
-                                <div class="title">
-                                    Баланс баллов
-                                </div>
-                                <div class="value">
-                                    4 500
-                                </div>
-                            </div>
-                            <div class="info-block level-info">
-                                <div class="title">
-                                    До следующего уровня
-                                </div>
-                                <div class="line-block">
-                                    <div class="title-row">
-                                        <div class="min">
-                                            0 ₽
-                                        </div>
-                                        <div class="cur">
-                                            40 000 ₽
-                                        </div>
-                                        <div class="max">
-                                            100 000 ₽
-                                        </div>
-                                    </div>
-                                    <div class="line-row">
-                                        <div class="line">
-                                            <div class="progress-line" style="width: 35%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stats-block tabs-block">
-                            <div class="tabs-head">
-                                <div class="tab-btn">
-                                    История начислений и списаний
-                                </div>
-                            </div>
-                            <div class="tabs-body">
-                                <div class="tab-body active">
-                                    <div class="info-row head-row">
-                                        <div class="col">
-                                            Дата
-                                        </div>
-                                        <div class="col">
-                                            Дейстие
-                                        </div>
-                                        <div class="col">
-                                            Сумма
-                                        </div>
-                                    </div>
-                                    <div class="info-row">
-                                        <div class="col">
-                                            10.04.2023
-                                        </div>
-                                        <div class="col">
-                                            Начисление
-                                        </div>
-                                        <div class="col inc-col">
-                                            + 1 000
-                                        </div>
-                                    </div>
-                                    <div class="info-row">
-                                        <div class="col">
-                                            09.04.2023
-                                        </div>
-                                        <div class="col">
-                                            Списание
-                                        </div>
-                                        <div class="col dec-col">
-                                            - 500
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-col">
-                        <div class="card-block">
-                            <div class="card-logo icon-logo"></div>
-                            <div class="val-container" style="background: url(/files/front/images.jpg)">
-                                <div class="val-block">
-                                    <div class="val">
-                                        0
-                                    </div>
+                <?php if ($loyalty->is_registered) : ?>
+                    <div class="loyalty-grid">
+                        <div class="info-col">
+                            <div class="card-info-grid">
+                                <div class="info-block">
                                     <div class="title">
-                                        Баланс
+                                        Уровень
+                                    </div>
+                                    <div class="value">
+                                        1
                                     </div>
                                 </div>
-                                <div class="slogan font_2">
-                                    Ешь настоящее, живи настоящим
+                                <div class="info-block">
+                                    <div class="title">
+                                        Кэшбек
+                                    </div>
+                                    <div class="value">
+                                        2%
+                                    </div>
+                                </div>
+                                <div class="info-block">
+                                    <div class="title">
+                                        Баланс баллов
+                                    </div>
+                                    <div class="value">
+                                        4 500
+                                    </div>
+                                </div>
+                                <div class="info-block level-info">
+                                    <div class="title">
+                                        До следующего уровня
+                                    </div>
+                                    <div class="line-block">
+                                        <div class="title-row">
+                                            <div class="min">
+                                                0 ₽
+                                            </div>
+                                            <div class="cur">
+                                                40 000 ₽
+                                            </div>
+                                            <div class="max">
+                                                100 000 ₽
+                                            </div>
+                                        </div>
+                                        <div class="line-row">
+                                            <div class="line">
+                                                <div class="progress-line" style="width: 35%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="qr-block">
-                                <img src="/files/front/qr.png" alt="">
+                            <div class="stats-block tabs-block">
+                                <div class="tabs-head">
+                                    <div class="tab-btn">
+                                        История начислений и списаний
+                                    </div>
+                                </div>
+                                <div class="tabs-body">
+                                    <div class="tab-body active">
+                                        <div class="info-row head-row">
+                                            <div class="col">
+                                                Дата
+                                            </div>
+                                            <div class="col">
+                                                Дейстие
+                                            </div>
+                                            <div class="col">
+                                                Сумма
+                                            </div>
+                                        </div>
+                                        <div class="info-row">
+                                            <div class="col">
+                                                10.04.2023
+                                            </div>
+                                            <div class="col">
+                                                Начисление
+                                            </div>
+                                            <div class="col inc-col">
+                                                + 1 000
+                                            </div>
+                                        </div>
+                                        <div class="info-row">
+                                            <div class="col">
+                                                09.04.2023
+                                            </div>
+                                            <div class="col">
+                                                Списание
+                                            </div>
+                                            <div class="col dec-col">
+                                                - 500
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="card-col">
+                            <div class="card-block">
+                                <div class="card-logo icon-logo"></div>
+                                <div class="val-container" style="background: url(/files/front/images.jpg)">
+                                    <div class="val-block">
+                                        <div class="val">
+                                            0
+                                        </div>
+                                        <div class="title">
+                                            Баланс
+                                        </div>
+                                    </div>
+                                    <div class="slogan font_2">
+                                        Ешь настоящее, живи настоящим
+                                    </div>
+                                </div>
+                                <div class="qr-block">
+                                    <img src="/files/front/qr.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ctrls-col">
+                            <a href="#" class="common_btn revert">
+                                ДОБАВИТЬ В wallet
+                            </a>
+                            <a href="#" class="loyalty-btn">
+                                О программе лояльности
+                            </a>
+                        </div>
                     </div>
-                    <div class="ctrls-col">
-                        <a href="#" class="common_btn revert">
-                            ДОБАВИТЬ В wallet
-                        </a>
-                        <a href="#" class="loyalty-btn">
-                            О программе лояльности
-                        </a>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
