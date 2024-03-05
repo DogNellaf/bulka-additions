@@ -12,23 +12,20 @@ class LoyaltyApi extends Component
     {
         $token = Yii::$app->params['loyalty']['token'];
         $url = Yii::$app->params['loyalty']['url'];
-        $client = new Client(['baseUrl' => $url]); //'https://site-v2.apipb.ru/buyer-info'
+        $client = new Client(['baseUrl' => $url]);
         return $client
                 ->createRequest()
                 ->setMethod('POST')
                 ->setFormat(Client::FORMAT_JSON)
                 ->setHeaders([
                     'Accept' => 'application/json',
-                    'Authorization' => $token, //"test:459a9e9d73d0ccca376df9b07f230d17"
+                    'Authorization' => $token,
                 ]);
     }
 
     // buyer-info request
     public function getInfo($phone)
     {
-        // $token = Yii::$app->params['loyaltyApi']['token'];
-        // $url = Yii::$app->params['loyaltyApi']['url'];
-        // $client = new Client(); //['baseUrl' => $url]
         $response = $this->getHttpClient()
                     ->setUrl('buyer-info')
                     ->setData([
@@ -77,8 +74,20 @@ class LoyaltyApi extends Component
     // buyer-register request
     public function register($user)
     {
+        $response = $this->getHttpClient()
+                    ->setUrl('buyer-info')
+                    ->setData([
+                        'phone' => $user->phone,
+                        'name' => $user->name,
+                        'email' => $user->email
+                    ])
+                    ->send();
 
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        if ($response->isOk) {
+            $data = $data;
+            return $response->data['success'];
+        }
+        return false;
     }
 
     // buyer-edit request

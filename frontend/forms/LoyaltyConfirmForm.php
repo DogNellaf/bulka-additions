@@ -5,7 +5,7 @@ namespace frontend\forms;
 use yii\base\Model;
 use common\entities\User;
 
-class LoyaltyRegisterForm extends Model
+class LoyaltyConfirmForm extends Model
 {
     public $phone;
 
@@ -32,6 +32,6 @@ class LoyaltyRegisterForm extends Model
             return null;
         }
         // TO DO
-        return User::signup($this->username, $this->email, $this->password);
+        return  User::signup($this->username, $this->email, $this->password);
     }
 }
