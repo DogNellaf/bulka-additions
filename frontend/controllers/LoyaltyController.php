@@ -49,7 +49,7 @@ class LoyaltyController extends FrontendController
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
 
-        if (checkRegistered($user->phone) == True) {
+        if ($this->checkRegistered($user->phone) == True) {
             throw new ForbiddenHttpException('Вы уже были зарегистрированы');
         }
 
@@ -64,7 +64,7 @@ class LoyaltyController extends FrontendController
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
 
-        if (checkRegistered($user->phone) == True) {
+        if ($this->checkRegistered($user->phone) == True) {
             throw new ForbiddenHttpException('Вы уже были зарегистрированы');
         }
 
