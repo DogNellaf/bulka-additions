@@ -78,7 +78,7 @@ class LoyaltyApi extends Component
                     ->setUrl('buyer-info')
                     ->setData([
                         'phone' => $user->phone,
-                        'name' => $user->name,
+                        'name' => $user->username,
                         'email' => $user->email
                     ])
                     ->send();
