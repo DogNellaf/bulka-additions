@@ -15,26 +15,7 @@ $user = Yii::$app->user->identity;
 $cost_module = \common\entities\Modules::findOne(9);
 ?>
 
-
-
-
 <div id="cart" class="cart page padded padded_bottom">
-<!-- <input type="text" class="js-range-slider" name="my_range" value="" />
-<script>
-  $(".js-range-slider").ionRangeSlider({
-        type: "double",
-        min: 0,
-        max: 1000,
-        from: 200,
-        to: 500,
-        grid: true
-    });
-</script> -->
-
-<!-- <script src="/js/vendor/imagesloaded.pkgd.min.js" type="text/javascript"></script>
-<script src="/js/vendor/slick.min.js" type="text/javascript"></script>
-<script src="/js/vendor/ion.rangeSlider.js" type="text/javascript"></script>
-<script src="/js/vendor/jquery.suggestions.min.js" type="text/javascript"></script> -->
 
     <div class="page_header">
         <div class="wrapper">
@@ -208,38 +189,64 @@ $cost_module = \common\entities\Modules::findOne(9);
                         <?php endif; ?>
                     </div>
                     <div class="center">
-                        <div class="row">
-                            <div class="col">
-                                <p>
-                                    Доступно бонусов: <strong>4 449</strong>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p>
-                                    Списать:
-                                </p>
-                            </div>
-                            <div class="col">
-                                <input type="range" min="1" max="4449" value="50" class="slider" id="myRange">
-                            </div>
-                            <div class="col">
-                                <p>
-                                    <input type="number" name="bonuses" id="bonuses" value="0">
-                                </p>
-                            </div>
-                        </div>
+                        <p>
+                            Доступно бонусов: <strong>4 449</strong>
+                        </p>
                         <div class="bonuses-block">
-                            
+                            Списать:
                             <div class="bones-container">
                                 <div class="range-block">
-                                    
+                                    <span class="irs irs--flat js-irs-0 irs-with-grid">
+                                        <span class="irs">
+                                            <span class="irs-line" tabindex="0"></span>
+                                            <span class="irs-min" style="visibility: hidden;">0</span>
+                                            <span class="irs-max" style="visibility: visible;">4 999</span>
+                                            <span class="irs-from" style="visibility: hidden;">0</span>
+                                            <span class="irs-to" style="visibility: hidden;">0</span>
+                                            <span class="irs-single" style="left: 2.86766%;">0</span>
+                                        </span>
+                                        <span class="irs-grid" style="width: 89.1241%; left: 5.33794%;">
+                                            <span class="irs-grid-pol" style="left: 0%"></span>
+                                            <span class="irs-grid-text js-grid-text-0" style="left: 0%; margin-left: 0%;">0</span>
+                                            <span class="irs-grid-pol small" style="left: 20%"></span>
+                                            <span class="irs-grid-pol small" style="left: 15%"></span>
+                                            <span class="irs-grid-pol small" style="left: 10%"></span>
+                                            <span class="irs-grid-pol small" style="left: 5%"></span>
+                                            <span class="irs-grid-pol" style="left: 25%"></span>
+                                            <span class="irs-grid-text js-grid-text-1" style="left: 25%; visibility: visible; margin-left: 0%;">1 250</span>
+                                            <span class="irs-grid-pol small" style="left: 45%"></span>
+                                            <span class="irs-grid-pol small" style="left: 40%"></span>
+                                            <span class="irs-grid-pol small" style="left: 35%"></span>
+                                            <span class="irs-grid-pol small" style="left: 30%"></span>
+                                            <span class="irs-grid-pol" style="left: 50%"></span>
+                                            <span class="irs-grid-text js-grid-text-2" style="left: 50%; visibility: visible; margin-left: 0%;">2 500</span>
+                                            <span class="irs-grid-pol small" style="left: 70%"></span>
+                                            <span class="irs-grid-pol small" style="left: 65%"></span>
+                                            <span class="irs-grid-pol small" style="left: 60%"></span>
+                                            <span class="irs-grid-pol small" style="left: 55%"></span>
+                                            <span class="irs-grid-pol" style="left: 75%"></span>
+                                            <span class="irs-grid-text js-grid-text-3" style="left: 75%; visibility: visible; margin-left: 0%;">3 749</span>
+                                            <span class="irs-grid-pol small" style="left: 95%"></span>
+                                            <span class="irs-grid-pol small" style="left: 90%"></span>
+                                            <span class="irs-grid-pol small" style="left: 85%"></span>
+                                            <span class="irs-grid-pol small" style="left: 80%"></span>
+                                            <span class="irs-grid-pol" style="left: 100%"></span>
+                                            <span class="irs-grid-text js-grid-text-4" style="left: 100%; margin-left: 0%;">4 999</span>
+                                        </span>
+                                        <span class="irs-bar irs-bar--single" style="left: 0px; width: 5.43794%;">
+                                        </span>
+                                        <span class="irs-shadow shadow-single" style="display: none;"></span>
+                                        <span class="irs-handle single" style="left: 0%;">
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                        </span> 
+                                    </span>
                                     <input type="number" id="range_input" data-max="4999" class="irs-hidden-input" tabindex="-1" readonly="">
                                 </div>
                             </div>
                             <div class="bonuses-val">
-                                
+                                <input type="number" name="bonuses" id="bonuses" value="0">
                             </div>
                         </div>
                         <div class="tip">
@@ -281,3 +288,10 @@ $cost_module = \common\entities\Modules::findOne(9);
     </div>
 
 </div>
+
+<script src="/js/vendor/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="/js/vendor/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+<script src="/js/vendor/slick.min.js" type="text/javascript"></script>
+<script src="/js/vendor/ion.rangeSlider.min.js" type="text/javascript"></script>
+<script src="/js/vendor/jquery.suggestions.min.js" type="text/javascript"></script>
+<script src="/js/card-script.js" type="text/javascript"></script>
