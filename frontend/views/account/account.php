@@ -398,7 +398,7 @@ $user = Yii::$app->user->identity;
                                         Баланс баллов
                                     </div>
                                     <div class="value">
-                                        <?= $loyalty['balance']; ?>
+                                        <?= $loyalty['balance_deposit']; ?>
                                     </div>
                                 </div>
                                 <div class="info-block level-info">
