@@ -59,23 +59,23 @@ class LoyaltyController extends FrontendController
                 return $this->refresh();
             }
         }
-        return $this->render('register', [
+        return $this->render('confirm', [
             'model' => $model
         ]);
     }
 
-    public function actionConfirm()
-    {
-        $loyalty = new LoyaltyApi();
-        $user = Yii::$app->user->identity;
-        $buyer = $loyalty->getInfo($user->phone);
+    // public function actionConfirm()
+    // {
+    //     $loyalty = new LoyaltyApi();
+    //     $user = Yii::$app->user->identity;
+    //     $buyer = $loyalty->getInfo($user->phone);
 
-        if ($buyer->is_registered == False) {
-            $loyalty->register($user);
-        }
+    //     if ($buyer->is_registered == False) {
+    //         $loyalty->register($user);
+    //     }
         
-        return $this->redirect('account/');
-    }
+    //     return $this->redirect('account/');
+    // }
 
     public function actionWallet($id)
     {
