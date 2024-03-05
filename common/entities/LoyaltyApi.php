@@ -35,7 +35,7 @@ class LoyaltyApi extends Component
                     ->setFormat(Client::FORMAT_JSON)
                     ->setHeaders([
                         'Accept' => 'application/json',
-                        'Authorization' => $token,
+                        'Authorization' => "test:459a9e9d73d0ccca376df9b07f230d17", //$token
                     ])
                     ->setUrl('https://site-v2.apipb.ru/buyer-info')
                     ->setData([
