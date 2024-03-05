@@ -94,7 +94,7 @@ class LoyaltyController extends FrontendController
                 return $this->redirect(['index']);
             }
         }
-        return $this->redirect()
+        return $this->redirect(['index']);
     }
 
     public function actionWallet($id)
