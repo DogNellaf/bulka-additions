@@ -65,7 +65,7 @@ class LoyaltyApi extends Component
         }
         Yii::info($success);
         if ($success == False) {
-            Yii::info($data['error_description']);
+            Yii::error($data['error_description']);
         }
         return $success;
     }
@@ -92,7 +92,7 @@ class LoyaltyApi extends Component
         $success = $data['success'];
         Yii::info($success);
         if ($success == False) {
-            Yii::info($data['error_description']);
+            Yii::error($data['error_description']);
         }
         return $success;
     }
@@ -147,7 +147,7 @@ class LoyaltyApi extends Component
         $success = $data['success'];
         Yii::info($success);
         if ($success == False) {
-            Yii::info($data['error_description']);
+            Yii::error($data['error_description']);
         }
         return $success;
     }
@@ -173,7 +173,7 @@ class LoyaltyApi extends Component
         $success = $data['success'];
         Yii::info($success);
         if ($success == False) {
-            Yii::info($data['error_description']);
+            Yii::error($data['error_description']);
         }
         return $success;
     }
