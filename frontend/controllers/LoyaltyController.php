@@ -41,14 +41,11 @@ class LoyaltyController extends FrontendController
     {
         $this->setMeta('Регистрация в бонусной системе');
 
-        $model = new LoyaltyConfirmForm();
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
         $code = $loyalty->sendRegisterCode($user->phone);
 
-        return $this->render('register', [
-            'model' => $model
-        ]);
+        return $this->render('register');
     }
 
     public function actionConfirm()
@@ -60,7 +57,6 @@ class LoyaltyController extends FrontendController
         $num1 = $request->post('num1');
         $num2 = $request->post('num2');
         $num3 = $request->post('num3');
-        // $num4 = $request->get('num4');
         $code = $num1.$num2.$num3;
 
         $result = $loyalty->verifyConfirmationCode($user->phone, $code);

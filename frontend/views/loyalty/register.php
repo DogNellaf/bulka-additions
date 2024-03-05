@@ -26,6 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
             <form action="<?= Url::to(['loyalty/confirm']); ?>" method="POST">
+                <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
                 <div class="form_input_wrap">
                     <div class="code-form">
                         <p>
