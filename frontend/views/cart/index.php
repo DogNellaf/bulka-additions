@@ -290,8 +290,5 @@ $cost_module = \common\entities\Modules::findOne(9);
 </div>
 
 <script src="/js/vendor/jquery-3.1.1.min.js" type="text/javascript"></script>
-<script src="/js/vendor/imagesloaded.pkgd.min.js" type="text/javascript"></script>
-<script src="/js/vendor/slick.min.js" type="text/javascript"></script>
 <script src="/js/vendor/ion.rangeSlider.min.js" type="text/javascript"></script>
-<script src="/js/vendor/jquery.suggestions.min.js" type="text/javascript"></script>
 <script src="/js/card-script.js" type="text/javascript"></script>
