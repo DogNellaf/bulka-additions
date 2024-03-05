@@ -196,6 +196,7 @@ $cost_module = \common\entities\Modules::findOne(9);
                     </div>
                     <div class="center">
                         <form action="<?= Url::to(['cart/bonuses']) ?>" method="POST">
+                            <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
                             <p>
                                 Доступно бонусов: <strong>4 449</strong>
                             </p>
