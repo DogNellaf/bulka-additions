@@ -10,7 +10,7 @@ use frontend\forms\ResetPasswordForm;
 use frontend\forms\SignupForm;
 use Yii;
 use frontend\components\FrontendController;
-use frontend\forms\AccountForm;
+use frontend\forms\LoyaltyRegisterForm;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
