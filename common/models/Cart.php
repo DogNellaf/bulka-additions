@@ -25,6 +25,11 @@ class Cart
         $this->bonuses = $bonuses;
     }
 
+    public function getBonuses()
+    {
+        return $this->bonuses;
+    }
+
     public function getItems()
     {
         $this->loadItems();

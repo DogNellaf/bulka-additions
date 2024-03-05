@@ -212,7 +212,7 @@ $cost_module = \common\entities\Modules::findOne(9);
                                         type: "single",
                                         min: 0,
                                         max: 4449,
-                                        from: 500,
+                                        from: <?= $cart->getBonuses() ?>,
                                         grid: true,
                                         from_max: 750,      // set max position for FROM handle
                                         onStart: function (data) {
