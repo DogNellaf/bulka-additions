@@ -29,19 +29,19 @@ class LoyaltyApi extends Component
         $token = Yii::$app->params['loyaltyApi']['token'];
         $url = Yii::$app->params['loyaltyApi']['url'];
         $client = new Client(['baseUrl' => $url]);
-        $response $client
-                ->createRequest()
-                ->setMethod('POST')
-                ->setFormat(Client::FORMAT_JSON)
-                ->setHeaders([
-                    'Accept' => 'application/json',
-                    'Authorization' => $token,
-                ])
-                ->setUrl('buyer-info')
-                ->setData([
-                    'identificator' => $phone
-                ])
-                ->send();
+        $response = $client
+                    ->createRequest()
+                    ->setMethod('POST')
+                    ->setFormat(Client::FORMAT_JSON)
+                    ->setHeaders([
+                        'Accept' => 'application/json',
+                        'Authorization' => $token,
+                    ])
+                    ->setUrl('buyer-info')
+                    ->setData([
+                        'identificator' => $phone
+                    ])
+                    ->send();
 
         if ($response->isOk) {
             $data = $data;
