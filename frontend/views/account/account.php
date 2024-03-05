@@ -373,7 +373,7 @@ $user = Yii::$app->user->identity;
                 </div>
             </div>
             <div id="loyalty_program" class="personal_block loyalty_program">
-                <?php if ($loyalty['is_registered'] == True) : ?>
+                <?php if ($loyalty->is_registered == True) : ?>
                     <div class="loyalty-grid">
                         <div class="info-col">
                             <div class="card-info-grid">
@@ -506,8 +506,7 @@ $user = Yii::$app->user->identity;
                             Вы пока не состоите в программе лояльности
                         </h4>
                         <div class="descr">
-                            <p><?= $loyalty['phone']; ?></p>
-                            <p><?= Json::encode($loyalty); ?></p>
+                            <p><?= $loyalty ?></p>
                             Зарегистрируйтесь, чтобы собирать бонусы и получать скидки
                         </div>
                         <a href="<?= Url::to(['loyalty/register']); ?>" class="common_btn">

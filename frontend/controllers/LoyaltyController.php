@@ -50,9 +50,7 @@ class LoyaltyController extends FrontendController
             throw new ForbiddenHttpException('Вы уже были зарегистрированы');
         }
 
-        $result = $loyalty->register($user);
-        Yii::info('ababa'.Json::encode($result));
-
+        $loyalty->register($user);
         $code = $loyalty->sendRegisterCode($user->phone);
 
         return $this->render('register');
