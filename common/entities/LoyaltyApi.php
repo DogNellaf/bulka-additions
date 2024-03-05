@@ -28,7 +28,7 @@ class LoyaltyApi extends Component
     {
         $token = Yii::$app->params['loyaltyApi']['token'];
         $url = Yii::$app->params['loyaltyApi']['url'];
-        $client = new Client(['baseUrl' => $url]);
+        $client = new Client(); //['baseUrl' => $url]
         $response = $client
                     ->createRequest()
                     ->setMethod('POST')
@@ -37,7 +37,7 @@ class LoyaltyApi extends Component
                         'Accept' => 'application/json',
                         'Authorization' => $token,
                     ])
-                    ->setUrl('buyer-info')
+                    ->setUrl('https://site-v2.apipb.ru/buyer-info')
                     ->setData([
                         'identificator' => $phone
                     ])
