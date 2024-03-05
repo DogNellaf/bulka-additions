@@ -63,9 +63,9 @@ class LoyaltyApi extends Component
             $buyerDTO->$is_refused_receive_messages = $data['is_refused_receive_messages'];
             return $buyerDTO;
         }
-        Yii::debug($success);
+        Yii::info($success);
         if ($success == False) {
-            Yii::debug($data['error_description']);
+            Yii::info($data['error_description']);
         }
         return $success;
     }
@@ -90,9 +90,9 @@ class LoyaltyApi extends Component
                     ->send();
         $data = $response->data;
         $success = $data['success'];
-        Yii::debug($success);
+        Yii::info($success);
         if ($success == False) {
-            Yii::debug($data['error_description']);
+            Yii::info($data['error_description']);
         }
         return $success;
     }
@@ -145,9 +145,9 @@ class LoyaltyApi extends Component
                 ->send();
         $data = $response->data;
         $success = $data['success'];
-        Yii::debug($success);
+        Yii::info($success);
         if ($success == False) {
-            Yii::debug($data['error_description']);
+            Yii::info($data['error_description']);
         }
         return $success;
     }
@@ -171,9 +171,9 @@ class LoyaltyApi extends Component
                 ->send();
         $data = $response->data;
         $success = $data['success'];
-        Yii::debug($success);
+        Yii::info($success);
         if ($success == False) {
-            Yii::debug($data['error_description']);
+            Yii::info($data['error_description']);
         }
         return $success;
     }
