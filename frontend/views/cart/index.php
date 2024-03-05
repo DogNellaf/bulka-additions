@@ -208,9 +208,13 @@ $cost_module = \common\entities\Modules::findOne(9);
                         <?php endif; ?>
                     </div>
                     <div class="center">
-                        <p>
-                            Доступно бонусов: <strong>4 449</strong>
-                        </p>
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    Доступно бонусов: <strong>4 449</strong>
+                                </p>
+                            </div>
+                        </div>
                         <div class="bonuses-block">
                             Списать:
                             <div class="bones-container">
