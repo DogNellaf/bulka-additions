@@ -252,7 +252,7 @@ class CartController extends FrontendController
                         // }
                         // Yii::info("order #{$order->id} unknown payment reaction", __METHOD__ . ' orders_creating');
                         // Yii::$app->session->setFlash('error', 'Произошла ошибка при перенаправлении на страницу оплаты.');
-                        return $this->redirect(['checkout']);
+                        // return $this->redirect(['checkout']);
                     } elseif ($order->pay_method == 'card') {
 
                     } elseif ($order->pay_method == 'cash') {
