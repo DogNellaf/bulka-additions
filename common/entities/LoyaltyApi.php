@@ -140,12 +140,12 @@ class LoyaltyApi extends Component
                 ->getHttpClient()
                 ->setUrl('send-register-code')
                 ->setData([
-                    'Phone' => $user->phone
+                    'phone' => $phone
                 ])
                 ->send();
         $data = $response->data;
         $success = $data['success'];
-        Yii::info($success.''.$user->phone);
+        Yii::info($success.''.$phone);
         if ($success == False) {
             Yii::error($data['error_description']);
         }
@@ -165,8 +165,8 @@ class LoyaltyApi extends Component
                 ->getHttpClient()
                 ->setUrl('verify-confirmation-code')
                 ->setData([
-                    'Phone' => $phone,
-                    'Code' => $code
+                    'phone' => $phone,
+                    'code' => $code
                 ])
                 ->send();
         $data = $response->data;

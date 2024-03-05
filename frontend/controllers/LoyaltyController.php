@@ -61,7 +61,7 @@ class LoyaltyController extends FrontendController
         $user = Yii::$app->user->identity;
 
         $request = Yii::$app->request;
-        $code = $request->get('code'); 
+        $code = $request->get('code');
 
         $result = $loyalty->verifyConfirmationCode($user->phone, $code);
 
