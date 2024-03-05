@@ -16,7 +16,7 @@ $cost_module = \common\entities\Modules::findOne(9);
 ?>
 
 <!--Plugin CSS file with desired skin-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/> -->
 
 <!--jQuery-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -205,7 +205,7 @@ $cost_module = \common\entities\Modules::findOne(9);
                             Списать:
                             <div class="bones-container">
                                 <div class="range-block">
-                                    <input type="text" name="my_range" value="" />
+                                    <input type="text" class="js-range-slider" name="my_range" value="" />
                                     <script>
                                             $(".js-range-slider").ionRangeSlider();
                                     </script>
