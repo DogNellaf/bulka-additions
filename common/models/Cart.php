@@ -23,6 +23,7 @@ class Cart
     public function setBonuses($bonuses)
     {
         $this->bonuses = $bonuses;
+        $this->saveBonuses();
     }
 
     public function getBonuses()
@@ -276,5 +277,10 @@ class Cart
     private function saveItems()
     {
         $this->storage->save($this->items);
+    }
+
+    private function saveBonuses()
+    {
+        $this->storage->save($this->bonuses);
     }
 } 
