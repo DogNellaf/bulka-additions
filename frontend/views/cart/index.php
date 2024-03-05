@@ -15,10 +15,10 @@ $user = Yii::$app->user->identity;
 $cost_module = \common\entities\Modules::findOne(9);
 ?>
 
-<script src="/js/vendor/jquery-3.7.1.slim.min.js" type="text/javascript"></script>
+<!-- <script src="/js/vendor/jquery-3.7.1.slim.min.js" type="text/javascript"></script> -->
 <script src="/js/vendor/imagesloaded.pkgd.min.js" type="text/javascript"></script>
 <script src="/js/vendor/slick.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.min.js"></script>
+<script src="/js/vendor/ion.rangeSlider.js" type="text/javascript"></script>
 <script src="/js/vendor/jquery.suggestions.min.js" type="text/javascript"></script>
 <script src="/js/card-script.js" type="text/javascript"></script>
 
