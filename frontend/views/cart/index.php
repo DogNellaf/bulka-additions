@@ -195,42 +195,44 @@ $cost_module = \common\entities\Modules::findOne(9);
                         <?php endif; ?>
                     </div>
                     <div class="center">
-                        <p>
-                            Доступно бонусов: <strong>4 449</strong>
-                        </p>
-                        <div class="bonuses-block">
-                            Списать:
-                            <div class="bones-container">
-                                <div class="range-block">
-                                    <input type="text" id="slider" class="js-range-slider" value="" />
+                        <form action="<?= Url::to(['cart/bonuses']) ?>" method="POST">
+                            <p>
+                                Доступно бонусов: <strong>4 449</strong>
+                            </p>
+                            <div class="bonuses-block">
+                                Списать:
+                                <div class="bones-container">
+                                    <div class="range-block">
+                                        <input type="text" id="slider" class="js-range-slider" value="" />
+                                    </div>
                                 </div>
+                                <div class="bonuses-val">
+                                    <input type="number" name="bonuses" id="bonuses" value="0">
+                                    <script>
+                                        $(".js-range-slider").ionRangeSlider({
+                                            type: "single",
+                                            min: 0,
+                                            max: 4449,
+                                            from: <?= $cart->getBonuses() | 0 ?>,
+                                            grid: true,
+                                            from_max: 750,      // set max position for FROM handle
+                                            onStart: function (data) {
+                                                bonuses.value = slider.value;
+                                            },
+                                            onChange: function (data) {
+                                                bonuses.value = slider.value;
+                                            },
+                                        });
+                                    </script>
+                                </div>
+                                <button type="submit" class="bonuses_btn common_btn">
+                                    ПРИМЕНИТЬ
+                                </a>
                             </div>
-                            <div class="bonuses-val">
-                                <input type="number" name="bonuses" id="bonuses" value="0">
-                                <script>
-                                    $(".js-range-slider").ionRangeSlider({
-                                        type: "single",
-                                        min: 0,
-                                        max: 4449,
-                                        from: <?= $cart->getBonuses() | 0 ?>,
-                                        grid: true,
-                                        from_max: 750,      // set max position for FROM handle
-                                        onStart: function (data) {
-                                            bonuses.value = slider.value;
-                                        },
-                                        onChange: function (data) {
-                                            bonuses.value = slider.value;
-                                        },
-                                    });
-                                </script>
+                            <div class="tip">
+                                Возможно списать до 20% от суммы заказа
                             </div>
-                            <a href="<?= Url::to(['cart/bonuses']) ?>" class="bonuses_btn common_btn">
-                                ПРИМЕНИТЬ
-                            </a>
-                        </div>
-                        <div class="tip">
-                            Возможно списать до 20% от суммы заказа
-                        </div>
+                        </form>
                     </div>
                     <div class="right">
                         <div class="cart_sum_wrap">
