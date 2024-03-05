@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
             </div>
-            <form action="">
+            <form action="<?= Url::to(['loyalty/confirm']); ?>">
                 <div class="form_input_wrap">
                     <div class="code-form">
                         <p>

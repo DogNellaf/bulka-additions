@@ -82,12 +82,6 @@ class LoyaltyApi extends Component
                         'email' => $user->email
                     ])
                     ->send();
-
-        if ($response->isOk) {
-            $data = $data;
-            return $response->data['success'];
-        }
-        return false;
     }
 
     // buyer-edit request

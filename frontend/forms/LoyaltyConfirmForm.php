@@ -4,34 +4,37 @@ namespace frontend\forms;
 
 use yii\base\Model;
 use common\entities\User;
+use common\entities\LoyaltyApi;
 
 class LoyaltyConfirmForm extends Model
 {
-    public $phone;
+    public $code;
 
     public function rules()
     {
         return [
-            ['phone', 'trim'],
-            ['phone', 'required'],
-            ['phone', 'string', 'min' => 18, 'max' => 18],
-            ['phone', 'unique', 'targetClass' => '\common\entities\User', 'message' => 'Этот номер телефона уже занят другим пользователем.'],
+            ['num1', 'required'],
+            ['num1', 'integer'],
+
+            ['num2', 'required'],
+            ['num2', 'integer'],
+
+            ['num3', 'required'],
+            ['num3', 'integer'],
+
+            ['num4', 'required'],
+            ['num4', 'integer'],
         ];
     }
 
-    public function attributeLabels()
-    {
-        return [
-            'phone' => 'Номер телефона',
-        ];
-    }
-
-    public function sendConfirmationCode()
+    public function checkCode()
     {
         if (!$this->validate()) {
             return null;
         }
-        // TO DO
-        return  User::signup($this->username, $this->email, $this->password);
+
+        $loyalty = new LoyaltyApi();
+
+        return $loyalty.
     }
 }

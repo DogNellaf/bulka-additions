@@ -41,29 +41,6 @@ class LoyaltyController extends FrontendController
         ];
     }
 
-    // public function actionRegister()
-    // {
-    //     $this->setMeta('Регистрация в бонусной системе');
-
-    //     $model = new LoyaltyConfirmForm();
-    //     if ($model->load(Yii::$app->request->post())) {
-    //         if ($model->validate()){
-
-    //             // TODO
-
-    //             if ($model->editAccount()) {
-    //                 Yii::$app->session->setFlash('success', 'Изменения приняты.');
-    //             } else {
-    //                 Yii::$app->session->setFlash('error', 'Произошла ошибка.');
-    //             }
-    //             return $this->refresh();
-    //         }
-    //     }
-    //     return $this->render('confirm', [
-    //         'model' => $model
-    //     ]);
-    // }
-
     public function actionConfirm()
     {
         $this->setMeta('Регистрация в бонусной системе');
@@ -85,6 +62,19 @@ class LoyaltyController extends FrontendController
         return $this->render('confirm', [
             'model' => $model
         ]);
+    }
+
+    public function actionRegister()
+    {
+        $loyalty = new LoyaltyApi();
+        $user = Yii::$app->user->identity;
+        $buyer = $loyalty->getInfo($user->phone);
+
+        if ($buyer->is_registered == False) {
+            $loyalty->register($user);
+        }
+        
+        return $this->redirect('account/');
     }
 
     public function actionWallet($id)
