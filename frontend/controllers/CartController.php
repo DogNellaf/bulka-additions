@@ -241,16 +241,17 @@ class CartController extends FrontendController
                     */
 
                     if ($order->pay_method == 'online') {
-                        $acquirer = new SberBank();
-                        $result = $acquirer->register($order->id);
+                        //todo вернуть
+                        // $acquirer = new SberBank(); 
+                        // $result = $acquirer->register($order->id);
                         //todo отсечь все возможные ложные перенаправления на завершение заказа
-                        if (!$result || isset($result['errorCode'])) {
-                            Yii::info("order #{$order->id} online payment error. " . $result['errorCode'] . ': ' . $result['errorMessage'], __METHOD__ . ' orders_creating');
-                            Yii::$app->session->setFlash('error', 'Произошла ошибка.<br>' .  $result['errorCode'] . ': ' . $result['errorMessage']);
-                            return $this->redirect(['checkout']);
-                        }
-                        Yii::info("order #{$order->id} unknown payment reaction", __METHOD__ . ' orders_creating');
-                        Yii::$app->session->setFlash('error', 'Произошла ошибка при перенаправлении на страницу оплаты.');
+                        // if (!$result || isset($result['errorCode'])) {
+                        //     Yii::info("order #{$order->id} online payment error. " . $result['errorCode'] . ': ' . $result['errorMessage'], __METHOD__ . ' orders_creating');
+                        //     Yii::$app->session->setFlash('error', 'Произошла ошибка.<br>' .  $result['errorCode'] . ': ' . $result['errorMessage']);
+                        //     return $this->redirect(['checkout']);
+                        // }
+                        // Yii::info("order #{$order->id} unknown payment reaction", __METHOD__ . ' orders_creating');
+                        // Yii::$app->session->setFlash('error', 'Произошла ошибка при перенаправлении на страницу оплаты.');
                         return $this->redirect(['checkout']);
                     } elseif ($order->pay_method == 'card') {
 
@@ -289,16 +290,19 @@ class CartController extends FrontendController
                     $order->acquirer_order_id = $orderId;
                     $order->save();
 
-                    $acquirer = new SberBank();
-                    $acquirerResponse = $acquirer->orderStatus($orderId);
-                    if ($acquirerResponse['ErrorCode'] != 0) {
-                        Yii::info("order #{$order->id} acquirer orderStatus error", __METHOD__ . ' orders_creating');
-                        Yii::info($acquirerResponse, __METHOD__ . ' orders_creating');
-                        return $this->redirect(['cart/checkout', 'message' => 'Оплата отклонена']);
-                    } else {
-                        $formXml = true;
-                        $setStatus = true;
-                    }
+                    // todo вернуть
+                    // $acquirer = new SberBank();
+                    // $acquirerResponse = $acquirer->orderStatus($orderId);
+                    // if ($acquirerResponse['ErrorCode'] != 0) {
+                    //     Yii::info("order #{$order->id} acquirer orderStatus error", __METHOD__ . ' orders_creating');
+                    //     Yii::info($acquirerResponse, __METHOD__ . ' orders_creating');
+                    //     return $this->redirect(['cart/checkout', 'message' => 'Оплата отклонена']);
+                    // } else {
+                    //     $formXml = true;
+                    //     $setStatus = true;
+                    // }
+                    $formXml = true;
+                    $setStatus = true;
                     $this->cart->clear();
                 }
             } else {
