@@ -421,7 +421,7 @@ $isSumEnoughForDelivery = true;
                                                             Общая стоимость:
                                                         </td>
                                                         <td class="checkout_cost" data-cost="<?= $cart->getCost() + $cart->getBonuses(); ?>">
-                                                            <?= Service::formatPrice($cart->getCost()) ?>
+                                                            <?= Service::formatPrice($cart->getCost() + $cart->getBonuses()) ?>
                                                         </td>
                                                     </tr>
                                                     <tr>
