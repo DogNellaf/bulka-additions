@@ -506,7 +506,6 @@ $user = Yii::$app->user->identity;
                             Вы пока не состоите в программе лояльности
                         </h4>
                         <div class="descr">
-                            <p><?= $loyalty ?></p>
                             Зарегистрируйтесь, чтобы собирать бонусы и получать скидки
                         </div>
                         <a href="<?= Url::to(['loyalty/register']); ?>" class="common_btn">
