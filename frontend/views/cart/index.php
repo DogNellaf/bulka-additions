@@ -224,7 +224,7 @@ $cost_module = \common\entities\Modules::findOne(9);
                                     });
                                 </script>
                             </div>
-                            <a href="#" class="bonuses_btn common_btn">
+                            <a href="<?= Url::to(['cart/bonuses']) ?>" class="bonuses_btn common_btn">
                                 ПРИМЕНИТЬ
                             </a>
                         </div>
