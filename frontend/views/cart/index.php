@@ -205,9 +205,8 @@ $cost_module = \common\entities\Modules::findOne(9);
                                     <input type="text" id="slider" class="js-range-slider" value="" />
                                     <script>
                                         $(".js-range-slider").ionRangeSlider({
-                                            type: "integer",
                                             min: 0,
-                                            max: 1000,  
+                                            max: 1000,
                                             from: 500,
                                             onStart: function (data) {
                                                 bonuses.value = slider.value.split(';')[1];
