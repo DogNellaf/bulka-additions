@@ -398,7 +398,7 @@ $user = Yii::$app->user->identity;
                                         Баланс баллов
                                     </div>
                                     <div class="value">
-                                        4 500
+                                        <?= $loyalty['balance']; ?>
                                     </div>
                                 </div>
                                 <div class="info-block level-info">
@@ -476,7 +476,7 @@ $user = Yii::$app->user->identity;
                                 <div class="val-container" style="background: url(/files/front/images.jpg)">
                                     <div class="val-block">
                                         <div class="val">
-                                            0
+                                            <?= $loyalty['balance']; ?>
                                         </div>
                                         <div class="title">
                                             Баланс
@@ -503,7 +503,6 @@ $user = Yii::$app->user->identity;
                 <?php else: ?>
                     <div class="no-loyalty-block">
                         <h4>
-                            <p><?= $loyalty['phone']; ?></p>
                             <p><?= Json::encode();; ?></p>
                             Вы пока не состоите в программе лояльности
                         </h4>
