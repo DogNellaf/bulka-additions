@@ -70,7 +70,7 @@ class LoyaltyController extends FrontendController
         $result = $loyalty->verifyConfirmationCode($user->phone, $code);
 
         if ($result == False) {
-            return $this->redirect('loyalty/register');
+            return $this->redirect('/loyalty/register');
         }
         
         return $this->goHome();
