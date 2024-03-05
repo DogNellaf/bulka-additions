@@ -48,9 +48,9 @@ class AccountController extends FrontendController
         return new LoyaltyApi();
     }
 
-    protected function getLoyaltyInfo($model)
+    protected function getLoyaltyInfo()
     {
-        $phone = $model->$phone;
+        $phone = Yii::$app->user->identity->$phone;
         return $this->getLoyaltyApi()->getInfo($phone);
     }
 
@@ -71,7 +71,7 @@ class AccountController extends FrontendController
         }
         return $this->render('account', [
             'model' => $model,
-            'loyalty' => $this->getLoyaltyInfo($model)
+            'loyalty' => $this->getLoyaltyInfo()
         ]);
     }
 
