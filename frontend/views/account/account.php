@@ -379,7 +379,7 @@ $user = Yii::$app->user->identity;
                             <div class="card-info-grid">
                                 <div class="info-block">
                                     <div class="title">
-                                        Уровень
+                                        Группа
                                     </div>
                                     <div class="value">
                                         <?= $loyalty['group_name']; ?>
