@@ -281,6 +281,6 @@ class Cart
 
     private function saveBonuses()
     {
-        $this->storage->save($this->bonuses);
+        $this->storage->save([$this->bonuses]);
     }
 } 
