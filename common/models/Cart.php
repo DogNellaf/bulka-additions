@@ -165,7 +165,7 @@ class Cart
         $cost = $this->getCost();
         /* @var $cost_module \common\entities\Modules */
         $cost_module = Modules::findOne(9);
-        if ($cost < $cost_module->min_order_sum) {
+        if ($cost < $cost_module->min_order_sum - $this->$bonuses) {
             return false;
         }
         return $cost;
@@ -181,7 +181,7 @@ class Cart
         $cost = $this->getCost();
         /* @var $cost_module \common\entities\Modules */
         $cost_module = Modules::findOne(9);
-        if ($cost < $cost_module->min_order_sum) {
+        if ($cost < $cost_module->min_order_sum - $this->$bonuses) {
             return false;
         }
         return true;
