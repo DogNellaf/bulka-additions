@@ -491,10 +491,10 @@ $user = Yii::$app->user->identity;
                             </div>
                         </div>
                         <div class="ctrls-col">
-                            <a href="<?= Url::to(['account/loyalty/wallet']); ?>" class="common_btn revert">
+                            <a href="<?= Url::to(['loyalty/wallet']); ?>" class="common_btn revert">
                                 ДОБАВИТЬ В wallet
                             </a>
-                            <a href="<?= Url::to(['account/loyalty/about']); ?>" class="loyalty-btn">
+                            <a href="<?= Url::to(['loyalty/about']); ?>" class="loyalty-btn">
                                 О программе лояльности
                             </a>
                         </div>
@@ -507,7 +507,7 @@ $user = Yii::$app->user->identity;
                         <div class="descr">
                             Зарегистрируйтесь, чтобы собирать бонусы и получать скидки
                         </div>
-                        <a href="<?= Url::to(['account/loyalty/register']); ?>" class="common_btn">
+                        <a href="<?= Url::to(['loyalty/register']); ?>" class="common_btn">
                             ЗАРЕГИСТРИРОВАТЬСЯ
                         </a>
                     </div>
