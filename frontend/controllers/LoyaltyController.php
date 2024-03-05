@@ -59,7 +59,7 @@ class LoyaltyController extends FrontendController
                 return $this->refresh();
             }
         }
-        return $this->render('confirm', [
+        return $this->render('register', [
             'model' => $model
         ]);
     }
