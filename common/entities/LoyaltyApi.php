@@ -58,7 +58,7 @@ class LoyaltyApi extends Component
         if ($success == True) {
             $buyerDTO = new BuyerInfo();
             $buyerDTO->$identificator_type = ['identificator_type'];
-            $buyerDTO->$is_register = $data['is_register'];
+            $buyerDTO->$is_registered = $data['is_registered'];
             $buyerDTO->$blocked = $data['blocked'];
             $buyerDTO->$phone = $data['phone'];
             $buyerDTO->$name = $data['name'];
