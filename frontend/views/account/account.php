@@ -502,6 +502,8 @@ $user = Yii::$app->user->identity;
                 <?php else: ?>
                     <div class="no-loyalty-block">
                         <h4>
+                            <p><?= $loyalty['phone']; ?></p>
+                            <p><?= $loyalty['is_register']; ?></p>
                             Вы пока не состоите в программе лояльности
                         </h4>
                         <div class="descr">
