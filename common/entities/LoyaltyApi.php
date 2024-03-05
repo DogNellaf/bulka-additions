@@ -16,6 +16,10 @@ class LoyaltyApi extends Component
         return str_replace(")","",$phone);
     }
 
+    protected function log($data) {
+        Yii::info('[loyalty] '.$success);
+    }
+
     public function getHttpClient()
     {
         $token = Yii::$app->params['loyalty']['token'];
@@ -46,7 +50,7 @@ class LoyaltyApi extends Component
         $data = $response->data;
         $success = $data['success'];
 
-        Yii::info($success);
+        $this->log($success);
         if ($success == False) {
             Yii::error($data['error_description']);
         }
@@ -104,11 +108,11 @@ class LoyaltyApi extends Component
                     ->send();
         $data = $response->data;
         $success = $data['success'];
-        Yii::info($success);
+        $this->log('[loyalty] '.$success);
         if ($success == False) {
             Yii::error($data['error_description']);
         }
-        return $response;
+        return $response->data;
     }
 
     // buyer-edit request
@@ -161,7 +165,7 @@ class LoyaltyApi extends Component
 
         $data = $response->data;
         $success = $data['success'];
-        Yii::info($success.''.$phone);
+        $this->log($success.''.$phone);
         if ($success == False) {
             Yii::error($data['error_description']);
         }
@@ -188,7 +192,7 @@ class LoyaltyApi extends Component
                 ->send();
         $data = $response->data;
         $success = $data['success'];
-        Yii::info($success.''.$code);
+        $this->log($success.''.$code);
         if ($success == False) {
             Yii::error($data['error_description']);
         }

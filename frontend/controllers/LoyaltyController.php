@@ -45,7 +45,7 @@ class LoyaltyController extends FrontendController
         $user = Yii::$app->user->identity;
 
         $result = $loyalty->register($user);
-        Yii::info('ababa'.Json::encode($result->data));
+        Yii::info('ababa'.Json::encode($result));
 
         $code = $loyalty->sendRegisterCode($user->phone);
 
