@@ -22,8 +22,8 @@ class LoyaltyConfirmForm extends Model
             ['num3', 'required'],
             ['num3', 'integer'],
 
-            ['num4', 'required'],
-            ['num4', 'integer'],
+            // ['num4', 'required'],
+            // ['num4', 'integer'],
         ];
     }
 

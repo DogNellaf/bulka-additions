@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <input type="number" id="num_1">
                             <input type="number" id="num_2">
                             <input type="number" id="num_3">
-                            <input type="number" id="num_4">
+                            <!-- <input type="number" id="num_4"> -->
                         </div>
                         <div class="get-new-code">
                             <a href="<?= Url::to(['loyalty/register']); ?>" class="common_btn get-new-code-btn">отправить код повторно</a>

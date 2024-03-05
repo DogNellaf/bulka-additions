@@ -64,7 +64,7 @@ class LoyaltyController extends FrontendController
         $num1 = $request->get('num1');
         $num2 = $request->get('num2');
         $num3 = $request->get('num3');
-        $num4 = $request->get('num4');
+        // $num4 = $request->get('num4');
         $code = $num1.$num2.$num3.$num4;
 
         $result = $loyalty->verifyConfirmationCode($user->phone, $code);
