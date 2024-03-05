@@ -215,16 +215,31 @@ $cost_module = \common\entities\Modules::findOne(9);
                                 </p>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    Списать:
+                                </p>
+                            </div>
+                            <div class="col">
+                                <input type="range" min="1" max="4449" value="50" class="slider" id="myRange">
+                            </div>
+                            <div class="col">
+                                <p>
+                                    <input type="number" name="bonuses" id="bonuses" value="0">
+                                </p>
+                            </div>
+                        </div>
                         <div class="bonuses-block">
-                            Списать:
+                            
                             <div class="bones-container">
                                 <div class="range-block">
-                                    <input type="range" min="1" max="4449" value="50" class="slider" id="myRange">
+                                    
                                     <input type="number" id="range_input" data-max="4999" class="irs-hidden-input" tabindex="-1" readonly="">
                                 </div>
                             </div>
                             <div class="bonuses-val">
-                                <input type="number" name="bonuses" id="bonuses" value="0">
+                                
                             </div>
                         </div>
                         <div class="tip">
