@@ -25,16 +25,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
             </div>
-            <form action="<?= Url::to(['loyalty/confirm']); ?>">
+            <form action="<?= Url::to(['loyalty/confirm']); ?>" method="POST">
                 <div class="form_input_wrap">
                     <div class="code-form">
                         <p>
                             Введите код, отправленный на указанный вами номер телефона
                         </p>
                         <div class="form_input_block code-inputs-row">
-                            <input type="number" id="num_1">
-                            <input type="number" id="num_2">
-                            <input type="number" id="num_3">
+                            <input type="number" id="num_1" name="num1">
+                            <input type="number" id="num_2" name="num2">
+                            <input type="number" id="num_3" name="num3">
                             <!-- <input type="number" id="num_4"> -->
                         </div>
                         <div class="get-new-code timer-active">
