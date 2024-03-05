@@ -235,7 +235,7 @@ $cost_module = \common\entities\Modules::findOne(9);
                     <div class="right">
                         <div class="cart_sum_wrap">
                             <span class="cart_sum_title">Общая стоимость:</span>
-                            <span class="cart_sum"><?= Service::formatPrice($cart->getCost() - ) ?></span>
+                            <span class="cart_sum"><?= Service::formatPrice($cart->getCost()) ?></span>
                         </div>
                         <?php if ($cart->getItems()): ?>
                             <?php if ($cart->isAllowedCost() && $cart->isEnoughItemsQty()): ?>
