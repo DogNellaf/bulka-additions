@@ -37,8 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <input type="number" id="num_3">
                             <!-- <input type="number" id="num_4"> -->
                         </div>
-                        <div class="get-new-code">
-                            <a href="#" class="common_btn get-new-code-btn">отправить код повторно</a>
+                        <div class="get-new-code timer-active">
+                            <a href="<?= Url::to(['loyalty/register']); ?>" class="common_btn get-new-code-btn">отправить код повторно</a>
                             <div class="code-timer-block">
                                 Повторная отправка возможна через <span class="code-timer" data-start="5">1</span> сек.
                             </div>
