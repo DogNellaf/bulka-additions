@@ -37,7 +37,6 @@ class LoyaltyApi extends Component
                     'Accept' => 'application/json',
                     'Authorization' => $token,
                 ])
-                ->getHttpClient()
                 ->setUrl('buyer-info')
                 ->setData([
                     'identificator' => $phone
