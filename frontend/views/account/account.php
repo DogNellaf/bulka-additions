@@ -507,7 +507,7 @@ $user = Yii::$app->user->identity;
                         <div class="descr">
                             Зарегистрируйтесь, чтобы собирать бонусы и получать скидки
                         </div>
-                        <a href="<?= Url::to(['loyalty/confirm']); ?>" class="common_btn">
+                        <a href="<?= Url::to(['loyalty/register']); ?>" class="common_btn">
                             ЗАРЕГИСТРИРОВАТЬСЯ
                         </a>
                     </div>
