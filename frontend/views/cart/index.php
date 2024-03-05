@@ -28,11 +28,11 @@ $cost_module = \common\entities\Modules::findOne(9);
     });
 </script>
 
-<script src="/js/vendor/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+<!-- <script src="/js/vendor/imagesloaded.pkgd.min.js" type="text/javascript"></script>
 <script src="/js/vendor/slick.min.js" type="text/javascript"></script>
 <script src="/js/vendor/ion.rangeSlider.js" type="text/javascript"></script>
 <script src="/js/vendor/jquery.suggestions.min.js" type="text/javascript"></script>
-<script src="/js/card-script.js" type="text/javascript"></script>
+<script src="/js/card-script.js" type="text/javascript"></script> -->
     <div class="page_header">
         <div class="wrapper">
             <div class="title title_1 font_2">
