@@ -15,9 +15,6 @@ $user = Yii::$app->user->identity;
 $cost_module = \common\entities\Modules::findOne(9);
 ?>
 
-<!--Plugin CSS file with desired skin-->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/> -->
-
 <!--jQuery-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -207,7 +204,14 @@ $cost_module = \common\entities\Modules::findOne(9);
                                 <div class="range-block">
                                     <input type="text" class="js-range-slider" name="my_range" value="" />
                                     <script>
-                                            $(".js-range-slider").ionRangeSlider();
+                                        $(".js-range-slider").ionRangeSlider({
+                                            type: "double",
+                                            min: 0,
+                                            max: 1000,
+                                            from: 200,
+                                            to: 500,
+                                            grid: true
+                                        });
                                     </script>
                                 </div>
                             </div>
