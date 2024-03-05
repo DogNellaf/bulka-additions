@@ -22,11 +22,6 @@ class LoyaltyController extends FrontendController
                 'class' => AccessControl::class,
                 'rules' => [
                     [
-                        'actions' => ['signup', 'request-password-reset', 'reset-password'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -36,6 +31,7 @@ class LoyaltyController extends FrontendController
                 'class' => VerbFilter::class,
                 'actions' => [
                     'logout' => ['post'],
+                    'confirm' => ['post']
                 ],
             ],
         ];
