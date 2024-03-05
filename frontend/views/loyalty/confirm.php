@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
             </div>
-            <form action="<?= Url::to(['loyalty/confirm']); ?>">
+            <form action="<?= Url::to(['loyalty/register']); ?>">
                 <div class="form_input_wrap">
                     <div class="code-form">
                         <p>
@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <input type="number" id="num_4">
                         </div>
                         <div class="get-new-code">
-                            <a href="<?= Url::to(['loyalty/confirm']); ?>" class="common_btn get-new-code-btn">отправить код повторно</a>
+                            <a href="<?= Url::to(['loyalty/register']); ?>" class="common_btn get-new-code-btn">отправить код повторно</a>
                             <div class="code-timer-block">
                                 Повторная отправка возможна через <span class="code-timer" data-start="5">1</span> сек.
                             </div>

@@ -51,11 +51,11 @@ class LoyaltyController extends FrontendController
 
                 // TODO
 
-                if ($model->editAccount()) {
-                    Yii::$app->session->setFlash('success', 'Изменения приняты.');
-                } else {
-                    Yii::$app->session->setFlash('error', 'Произошла ошибка.');
-                }
+                // if ($model->editAccount()) {
+                //     Yii::$app->session->setFlash('success', 'Изменения приняты.');
+                // } else {
+                //     Yii::$app->session->setFlash('error', 'Произошла ошибка.');
+                // }
                 return $this->refresh();
             }
         }
