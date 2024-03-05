@@ -108,11 +108,11 @@ class LoyaltyApi extends Component
                     ->send();
         $data = $response->data;
         $success = $data['success'];
-        $this->log('[loyalty] '.$success);
+        $this->log('[loyalty] '.$data);
         if ($success == False) {
             Yii::error($data['error_description']);
         }
-        return $response->data;
+        return $data;
     }
 
     // buyer-edit request
