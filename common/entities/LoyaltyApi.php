@@ -2,6 +2,7 @@
 
 namespace common\entities;
 
+use yii;
 use yii\base\Component;
 use yii\httpclient\Client;
 
