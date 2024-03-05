@@ -20,6 +20,11 @@ class Cart
         $this->storage = $storage;
     }
 
+    public function setBonuses($bonuses)
+    {
+        $this->bonuses = $bonuses;
+    }
+
     public function getItems()
     {
         $this->loadItems();
