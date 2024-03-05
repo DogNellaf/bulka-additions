@@ -440,10 +440,7 @@ $isSumEnoughForDelivery = true;
                                                             СПИШЕТСЯ БАЛЛОВ
                                                         </td>
                                                         <td>
-                                                            <div class="hidden">
-                                                                -<?= Service::formatPrice($cart->getBonuses()) ?>
-                                                            </div>
-                                                            <span class="checkout_bonuses" data-cost="0"><span class="ico icon-coins"></span> <?= Service::formatPrice($cart->getBonuses()) ?></span>
+                                                            <span class="checkout_bonuses"><span class="ico icon-coins"></span> <?= Service::formatPrice($cart->getBonuses()) ?></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
