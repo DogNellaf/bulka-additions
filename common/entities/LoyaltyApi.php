@@ -8,6 +8,14 @@ use yii\httpclient\Client;
 
 class LoyaltyApi extends Component
 {
+    protected function getClearedPhone($phone) {
+        $phone = str_replace("+","",$phone);
+        $phone = str_replace(" ","",$phone);
+        $phone = str_replace("-","",$phone);
+        $phone = str_replace("(","",$phone);
+        return str_replace(")","",$phone);
+    }
+
     public function getHttpClient()
     {
         $token = Yii::$app->params['loyalty']['token'];
@@ -26,6 +34,7 @@ class LoyaltyApi extends Component
     // buyer-info request
     public function getInfo($phone)
     {
+        $phone = $this->getClearedPhone($phone);
         $response = $this
                     ->getHttpClient()
                     ->setUrl('buyer-info')
@@ -73,17 +82,19 @@ class LoyaltyApi extends Component
     // buyer-info-detail request
     public function getInfoDetail($phone)
     {
+        $phone = $this->getClearedPhone($phone);
         throw new NotFoundHttpException('Запрошенная вами страница не существует.');
     }
 
     // buyer-register request
     public function register($user)
     {
+        $phone = $this->getClearedPhone($user->phone);
         $response = $this
                     ->getHttpClient()
                     ->setUrl('buyer-info')
                     ->setData([
-                        'phone' => $user->phone,
+                        'phone' => $phone,
                         'name' => $user->username,
                         'email' => $user->email
                     ])
@@ -136,6 +147,7 @@ class LoyaltyApi extends Component
     // send-register-code request   
     public function sendRegisterCode($phone)
     {
+        $phone = $this->getClearedPhone($phone);
         $response = $this
                 ->getHttpClient()
                 ->setUrl('send-register-code')
@@ -143,6 +155,7 @@ class LoyaltyApi extends Component
                     'phone' => $phone
                 ])
                 ->send();
+
         $data = $response->data;
         $success = $data['success'];
         Yii::info($success.''.$phone);
@@ -161,6 +174,7 @@ class LoyaltyApi extends Component
     // verify-confirmation-code request
     public function verifyConfirmationCode($phone, $code)
     {
+        $phone = $this->getClearedPhone($phone);
         $response = $this
                 ->getHttpClient()
                 ->setUrl('verify-confirmation-code')
