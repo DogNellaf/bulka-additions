@@ -46,36 +46,26 @@ class LoyaltyController extends FrontendController
         $this->setMeta('Регистрация в бонусной системе');
 
         $model = new LoyaltyConfirmForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate()){
+        $loyalty = new LoyaltyApi();
+        $user = Yii::$app->user->identity;
+        $code = $loyalty->sendRegisterCode($user->phone);
 
-                // TODO
-
-                // if ($model->editAccount()) {
-                //     Yii::$app->session->setFlash('success', 'Изменения приняты.');
-                // } else {
-                //     Yii::$app->session->setFlash('error', 'Произошла ошибка.');
-                // }
-                return $this->refresh();
-            }
-        }
-        return $this->render('confirm', [
+        return $this->render('register', [
             'model' => $model
         ]);
     }
 
-    // public function actionConfirm()
-    // {
-    //     $loyalty = new LoyaltyApi();
-    //     $user = Yii::$app->user->identity;
-    //     $buyer = $loyalty->getInfo($user->phone);
+    public function actionConfirm()
+    {
+        $loyalty = new LoyaltyApi();
+        $result = $loyalty->verifyConfirmationCode($code);
 
-    //     if ($buyer->is_registered == False) {
-    //         $loyalty->register($user);
-    //     }
+        if ($result == False) {
+            return $this->redirect('loyalty/register');
+        }
         
-    //     return $this->redirect('account/');
-    // }
+        return $this->goHome();
+    }
 
     public function actionWallet($id)
     {
