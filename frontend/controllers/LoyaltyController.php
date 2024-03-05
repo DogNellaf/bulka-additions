@@ -58,7 +58,12 @@ class LoyaltyController extends FrontendController
     public function actionConfirm()
     {
         $loyalty = new LoyaltyApi();
-        $result = $loyalty->verifyConfirmationCode($code);
+        $user = Yii::$app->user->identity;
+
+        $request = Yii::$app->request;
+        $code = $request->get('code'); 
+
+        $result = $loyalty->verifyConfirmationCode($user->phone, $code);
 
         if ($result == False) {
             return $this->redirect('loyalty/register');
