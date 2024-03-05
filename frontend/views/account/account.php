@@ -479,25 +479,14 @@ $user = Yii::$app->user->identity;
                                             <?= $loyalty['balance']; ?>
                                         </div>
                                         <div class="title">
-                                            Баланс<p><?= Json::encode($loyalty); ?></p>
+                                            Баланс
                                         </div>
                                     </div>
                                     <div class="slogan font_2">
                                         Ешь настоящее, живи настоящим
                                     </div>
                                 </div>
-                                <div class="qr-block">
-                                    <img src="/files/front/qr.png" alt="">
-                                </div>
                             </div>
-                        </div>
-                        <div class="ctrls-col">
-                            <a href="<?= Url::to(['loyalty/wallet']); ?>" class="common_btn revert">
-                                ДОБАВИТЬ В wallet
-                            </a>
-                            <a href="<?= Url::to(['loyalty/about']); ?>" class="loyalty-btn">
-                                О программе лояльности
-                            </a>
                         </div>
                     </div>
                 <?php else: ?>
@@ -517,3 +506,4 @@ $user = Yii::$app->user->identity;
         </div>
     </div>
 </div>
+<p><?= Json::encode($loyalty); ?></p>
