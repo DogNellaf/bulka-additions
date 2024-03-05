@@ -16,7 +16,7 @@ $cost_module = \common\entities\Modules::findOne(9);
 ?>
 
 <script src="/js/vendor/jquery-3.1.1.min.js" type="text/javascript"></script>
-<script src="/js/vendor/ion.rangeSlider.min.js" type="text/javascript"></script>
+<script src="/js/vendor/ion.rangeSlider.js" type="text/javascript"></script>
 <script src="/js/card-script.js" type="text/javascript"></script>
 
 <div id="cart" class="cart page padded padded_bottom">
