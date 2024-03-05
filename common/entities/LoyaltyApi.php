@@ -185,7 +185,7 @@ class LoyaltyApi extends Component
                 ->send();
         $data = $response->data;
         $success = $data['success'];
-        Yii::info($success);
+        Yii::info($success.''.$code);
         if ($success == False) {
             Yii::error($data['error_description']);
         }

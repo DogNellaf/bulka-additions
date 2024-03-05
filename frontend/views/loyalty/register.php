@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="get-new-code timer-active">
                             <a href="<?= Url::to(['loyalty/register']); ?>" class="common_btn get-new-code-btn">отправить код повторно</a>
                             <div class="code-timer-block">
-                                Повторная отправка возможна через <span class="code-timer" data-start="5">1</span> сек.
+                                Повторная отправка возможна через <span class="code-timer" data-start="60">1</span> сек.
                             </div>
                         </div>
                         <div class="form_input_wrap get-new-code-confirm">
