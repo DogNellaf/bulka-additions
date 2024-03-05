@@ -23,8 +23,8 @@ class Cart
 
     public function setBonuses($bonuses)
     {
-        $this->bonuses = $bonuses;
         Yii::$app->session->set('cartBonuses', $bonuses);
+        $this->bonuses = $bonuses;
     }
 
     public function getBonuses()
