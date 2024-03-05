@@ -1,4 +1,7 @@
 <?php
+
+namespace common\entities;
+
 use yii\base\Component;
 use yii\httpclient\Client;
 
