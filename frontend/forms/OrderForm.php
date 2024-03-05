@@ -248,13 +248,14 @@ class OrderForm extends Model
     protected function saveOrderItems($items, $order_id)
     {
         /* @var $item CartItem */
+        $discountPerItem = $cart->getBonuses() / count($items);
         foreach ($items as $id => $item) {
             $order_item = new OrderItems();
             $order_item->order_id = $order_id;
             $order_item->product_id = $item->getProductId();
             $order_item->title = $item->getProduct()->title;
             $order_item->qty_item = $item->quantity;
-            $order_item->price_item = $item->getPrice();
+            $order_item->price_item = $item->getPrice() - $discountPerItem;
             $order_item->weight = $item->weight;
             $order_item->options = $item->options;
             $order_item->save();
