@@ -12,8 +12,8 @@ $this->title = 'Регистрация в бонусной системе';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<script src="/js/vendor/jquery-sortable.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/vendor/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="/js/confirm-script.js" type="text/javascript"></script>
 
 <div class="site-login page padded padded_bottom">
     <div class="wrapper">
