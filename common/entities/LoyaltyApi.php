@@ -95,7 +95,7 @@ class LoyaltyApi extends Component
         $phone = $this->getClearedPhone($user->phone);
         $response = $this
                     ->getHttpClient()
-                    ->setUrl('buyer-info')
+                    ->setUrl('buyer-register')
                     ->setData([
                         'phone' => $phone,
                         'name' => $user->username,
