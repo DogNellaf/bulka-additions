@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\entities\Orders;
 use common\entities\UserAddress;
+use common\entities\LoyaltyApi;
 use frontend\forms\PasswordResetRequestForm;
 use frontend\forms\ResetPasswordForm;
 use frontend\forms\SignupForm;
@@ -43,6 +44,10 @@ class AccountController extends FrontendController
         ];
     }
 
+    protected function getLoyaltyApi() {
+        return new LoyaltyApi();
+    }
+
     public function actionIndex()
     {
         $this->setMeta('Личный кабинет');
@@ -60,6 +65,7 @@ class AccountController extends FrontendController
         }
         return $this->render('account', [
             'model' => $model,
+            'loyalty' => $this->getLoyaltyInfo()
         ]);
     }
 
@@ -100,6 +106,12 @@ class AccountController extends FrontendController
             Yii::$app->session->setFlash('success', 'Изменения приняты.');
         }
         return $this->redirect(Yii::$app->request->referrer);
+    }
+
+    protected function getLoyaltyInfo()
+    {
+        $phone = Yii::$app->user->$phone;
+        return $this->getLoyaltyApi()->getInfo($phone);
     }
 
     public function actionLogout()
