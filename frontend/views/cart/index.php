@@ -212,7 +212,7 @@ $cost_module = \common\entities\Modules::findOne(9);
                                             grid: true,
                                             from_min: 250,      // set min position for FROM handle (replace FROM to TO to change handle)
                                             from_max: 750,      // set max position for FROM handle
-                                            from_shadow: true   // highlight restriction for FROM handle
+                                            from_shadow: true,   // highlight restriction for FROM handle
                                             onStart: function (data) {
                                                 bonuses.value = slider.value.split(';')[1];
                                             },
