@@ -13,6 +13,7 @@ class Cart
 {
     private $storage;
     private $items;
+    private $bonuses;
 
     public function __construct(StorageInterface $storage)
     {
@@ -146,7 +147,7 @@ class Cart
             }
             $cost += $item->getCost();
         }
-        return $cost;
+        return $cost - $bonuses;
     }
 
     public function getTotalCost()
