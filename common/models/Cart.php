@@ -18,12 +18,13 @@ class Cart
     public function __construct(StorageInterface $storage)
     {
         $this->storage = $storage;
+        $this->bonuses = Yii::$app->session->get('cartBonuses');
     }
 
     public function setBonuses($bonuses)
     {
         $this->bonuses = $bonuses;
-        $this->saveBonuses();
+        Yii::$app->session->set('cartBonuses', $bonuses);
     }
 
     public function getBonuses()
@@ -277,10 +278,5 @@ class Cart
     private function saveItems()
     {
         $this->storage->save($this->items);
-    }
-
-    private function saveBonuses()
-    {
-        $this->storage->save([$this->bonuses]);
     }
 } 
