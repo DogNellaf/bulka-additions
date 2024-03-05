@@ -14,7 +14,7 @@ class LoyaltyRegisterForm extends Model
         return [
             ['phone', 'trim'],
             ['phone', 'required'],
-            ['phone', 'string', 'min' => 15, 'max' => 15],
+            ['phone', 'string', 'min' => 18, 'max' => 18],
             ['phone', 'unique', 'targetClass' => '\common\entities\User', 'message' => 'Этот номер телефона уже занят другим пользователем.'],
         ];
     }

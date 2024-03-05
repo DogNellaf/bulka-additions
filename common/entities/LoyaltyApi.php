@@ -8,36 +8,29 @@ use yii\httpclient\Client;
 
 class LoyaltyApi extends Component
 {
-    // public function getHttpClient()
-    // {
-    //     $token = Yii::$app->params['loyaltyApi']['token'];
-    //     $url = Yii::$app->params['loyaltyApi']['url'];
-    //     $client = new Client(['baseUrl' => $url]);
-    //     return $client
-    //             ->createRequest()
-    //             ->setMethod('POST')
-    //             ->setFormat(Client::FORMAT_JSON)
-    //             ->setHeaders([
-    //                 'Accept' => 'application/json',
-    //                 'Authorization' => $token,
-    //             ]);
-    // }
+    public function getHttpClient()
+    {
+        $token = Yii::$app->params['loyaltyApi']['token'];
+        $url = Yii::$app->params['loyaltyApi']['url'];
+        $client = new Client(['baseUrl' => $url]); //'https://site-v2.apipb.ru/buyer-info'
+        return $client
+                ->createRequest()
+                ->setMethod('POST')
+                ->setFormat(Client::FORMAT_JSON)
+                ->setHeaders([
+                    'Accept' => 'application/json',
+                    'Authorization' => $token, //"test:459a9e9d73d0ccca376df9b07f230d17"
+                ]);
+    }
 
     // buyer-info request
     public function getInfo($phone)
     {
-        $token = Yii::$app->params['loyaltyApi']['token'];
-        $url = Yii::$app->params['loyaltyApi']['url'];
-        $client = new Client(); //['baseUrl' => $url]
-        $response = $client
-                    ->createRequest()
-                    ->setMethod('POST')
-                    ->setFormat(Client::FORMAT_JSON)
-                    ->setHeaders([
-                        'Accept' => 'application/json',
-                        'Authorization' => "test:459a9e9d73d0ccca376df9b07f230d17", //$token
-                    ])
-                    ->setUrl('https://site-v2.apipb.ru/buyer-info')
+        // $token = Yii::$app->params['loyaltyApi']['token'];
+        // $url = Yii::$app->params['loyaltyApi']['url'];
+        // $client = new Client(); //['baseUrl' => $url]
+        $response = $this->getHttpClient()
+                    ->setUrl('buyer-info')
                     ->setData([
                         'identificator' => $phone
                     ])
@@ -84,6 +77,7 @@ class LoyaltyApi extends Component
     // buyer-register request
     public function register($user)
     {
+
         throw new NotFoundHttpException('Запрошенная вами страница не существует.');
     }
 
