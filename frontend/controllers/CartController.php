@@ -6,6 +6,7 @@ use common\entities\Orders;
 use common\models\SberBank;
 use common\models\smsru\SMSRU;
 use frontend\forms\OrderForm;
+use common\entities\LoyaltyApi;
 use Yii;
 use yii\base\Module;
 use yii\web\NotFoundHttpException;
