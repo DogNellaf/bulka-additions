@@ -250,9 +250,10 @@ class CartController extends FrontendController
                 $loyalty = new LoyaltyApi();
                 $user = Yii::$app->user->identity;
                 $maxWriteOff = $loyalty->getWriteOff($cart, $user)['write_off_available'];
+
                 if ($cart->getBonuses() > $maxWriteOff) {
                     Yii::info('Not allowed bonuses write off', __METHOD__ . ' orders_creating');
-                    Yii::$app->session->setFlash('error', $message . 'Списано бонусов выше допустимого предела.');
+                    Yii::$app->session->setFlash('error', $message . 'Списано бонусов выше допустимого предела.'.$cart->getBonuses().$maxWriteOff);
                     return $this->redirect(['cart/index']);                    
                 }
                 
