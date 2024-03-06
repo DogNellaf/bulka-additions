@@ -103,10 +103,9 @@ class LoyaltyApi extends Component
     }
 
     // write-off-request request
-    public function getWriteOff($card, $user)
+    public function getWriteOff($cart, $user)
     {
         $phone = $this->getClearedPhone($user->phone);
-
         $items = [];
 
         foreach ($cart->getItems() as $item) {
@@ -142,7 +141,7 @@ class LoyaltyApi extends Component
     public function purchase($order)
     {
         $user = $order->user;
-        $cart = $order->cart;
+        $cart -> $order->cart;
         $phone = $this->getClearedPhone($user->phone);
 
         $items = [];
@@ -187,6 +186,7 @@ class LoyaltyApi extends Component
     public function editPurchase($order)
     {
         $user -> $order->user;
+        $cart -> $order->cart;
         $phone = $this->getClearedPhone($user->phone);
 
         $items = [];
