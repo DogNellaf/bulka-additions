@@ -256,7 +256,6 @@ class CartController extends FrontendController
                     return $this->redirect(['cart/index']);                    
                 }
                 
-
                 if ($order = $form->create()) {
                     Yii::info("order #{$order->id} created", __METHOD__ . ' orders_creating');
                     Yii::info($order, __METHOD__ . ' orders_creating');
@@ -294,7 +293,7 @@ class CartController extends FrontendController
 
                     }
                     
-                    $data = $loyalty->purchase($order);
+                    $data = $loyalty->purchase($cart, $user);
                     $success = $data['success'];
 
                     if (!$success) {

@@ -138,10 +138,8 @@ class LoyaltyApi extends Component
     }
 
     // purchase request
-    public function purchase($order)
+    public function purchase($cart, $user)
     {
-        $user = $order->user;
-        $cart = $order->cart;
         $phone = $this->getClearedPhone($user->phone);
 
         $items = [];
