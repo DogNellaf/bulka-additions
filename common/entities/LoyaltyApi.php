@@ -132,7 +132,6 @@ class LoyaltyApi extends Component
 
         $data = $this->sendRequest('write-off-request', $body);
 
-
         $success = $data['success'];
         $this->log('[loyalty] '.$data);
         if ($success == False) {
@@ -144,25 +143,96 @@ class LoyaltyApi extends Component
     // purchase request
     public function purchase($id)
     {
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        $user -> $order->user;
+        $phone = $this->getClearedPhone($user->phone);
+
+        $items = [];
+
+        foreach ($cart->getItems() as $item) {
+            $product = $item->getProduct();
+            $quantity = $item->getQuantity();
+            $cost = $item->getCost();
+            array_push($items, {
+                'amount' => $quantity * $cost,
+                'quantity' => $quantity,
+                'cost' => $cost,
+                'name' => $product->title,
+                'external_item_id' => $product->id
+            });
+        }
+
+        $body = [
+            'phone' => $phone,
+            'external_purchase_id' => $order->id,
+            'write_off_bonus' => $order->getBonuses(),
+            'items' => $items
+        ]
+
+        $data = $this->sendRequest('purchase', $body);
+
+        $success = $data['success'];
+        $this->log('[loyalty] '.$data);
+        if ($success == False) {
+            Yii::error($data['error_description']);
+        }
+        return $data;
     }
 
     // change-purchase-status request
-    public function changePurchaseStatus($purchase_id, $external_purchase_id, $status)
-    {
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
-    }
+    // public function changePurchaseStatus($purchase_id, $external_purchase_id, $status)
+    // {
+    //     throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+    // }
 
     // edit-purchase request
     public function editPurchase($order)
     {
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        $user -> $order->user;
+        $phone = $this->getClearedPhone($user->phone);
+
+        $items = [];
+
+        foreach ($cart->getItems() as $item) {
+            $product = $item->getProduct();
+            $quantity = $item->getQuantity();
+            $cost = $item->getCost();
+            array_push($items, {
+                'amount' => $quantity * $cost,
+                'quantity' => $quantity,
+                'cost' => $cost,
+                'name' => $product->title,
+                'external_item_id' => $product->id
+            });
+        }
+
+        $body = [
+            'phone' => $phone,
+            'external_purchase_id' => $order->id,
+            'write_off_bonus' => $order->getBonuses(),
+            'items' => $items
+        ]
+
+        $data = $this->sendRequest('edit-purchase', $body);
+
+        $success = $data['success'];
+        $this->log('[loyalty] '.$data);
+        if ($success == False) {
+            Yii::error($data['error_description']);
+        }
+        return $data;
     }
 
     // cancel-purchase request
-    public function cancelPurchase($order)
+    public function cancelPurchase($id)
     {
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        $data = $this->sendRequest('cancel-purchase', ['purchase_id' => $id]);
+
+        $success = $data['success'];
+        $this->log('[loyalty] '.$data);
+        if ($success == False) {
+            Yii::error($data['error_description']);
+        }
+        return $data;
     }
 
     // send-register-code request   
@@ -182,7 +252,15 @@ class LoyaltyApi extends Component
     // send-write-off-confirmation-code request
     public function sendWriteOffConfirmationCode($phone)
     {
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        $phone = $this->getClearedPhone($phone);
+        $data = $this->sendRequest('send-write-off-confirmation-code', ['phone' => $phone]);
+
+        $success = $data['success'];
+        $this->log($success.''.$phone);
+        if ($success == False) {
+            Yii::error($data['error_description']);
+        }
+        return $success;
     }
 
     // verify-confirmation-code request
