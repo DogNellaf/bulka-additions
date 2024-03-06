@@ -5,7 +5,6 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\widgets\MaskedInput;
-use yii\helpers\Json;
 
 /* @var $this yii\web\View */
 /* @var $model \frontend\forms\AccountForm */
