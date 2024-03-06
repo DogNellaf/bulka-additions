@@ -493,4 +493,3 @@ $user = Yii::$app->user->identity;
         </div>
     </div>
 </div>
-<p><?= Json::encode($loyalty); ?></p>

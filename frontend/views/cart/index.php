@@ -213,10 +213,10 @@ $cost_module = \common\entities\Modules::findOne(9);
                                         $(".js-range-slider").ionRangeSlider({
                                             type: "single",
                                             min: 0,
-                                            max: <?= $bonuses['balance'] ?>,
+                                            max: <?= $bonuses['balance'] | 0 ?>,
                                             from: <?= $cart->getBonuses() | 0 ?>,
                                             grid: true,
-                                            from_max: <?= $bonuses['write_off_available'] ?>,      // set max position for FROM handle
+                                            from_max: <?= $bonuses['write_off_available'] | 0 ?>,      // set max position for FROM handle
                                             onStart: function (data) {
                                                 bonuses.value = slider.value;
                                             },
@@ -1087,3 +1087,4 @@ $(function () {
 });
 
 </script>
+<p><?= Json::encode($bonuses); ?></p>
