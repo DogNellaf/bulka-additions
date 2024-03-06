@@ -3786,7 +3786,7 @@ button {
 }
 .loyalty-grid .card-info-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.7fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 16px;
   grid-row-gap: 22px;
   margin-bottom: 40px;
