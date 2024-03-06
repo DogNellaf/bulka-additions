@@ -20,7 +20,7 @@ class LoyaltyApi extends Component
         Yii::info('[loyalty] '.$success);
     }
 
-    public function getHttpClient()
+    protected function getHttpClient()
     {
         $token = Yii::$app->params['loyalty']['token'];
         $url = Yii::$app->params['loyalty']['url'];
@@ -35,19 +35,21 @@ class LoyaltyApi extends Component
                 ]);
     }
 
+    protected function sendRequest($url, $data) {
+        return $this
+                ->getHttpClient()
+                ->setUrl($url)
+                ->setData($data)
+                ->send()
+                ->data;
+    }
+
     // buyer-info-detail request
     public function getInfo($phone)
     {
         $phone = $this->getClearedPhone($phone);
-        $response = $this
-                    ->getHttpClient()
-                    ->setUrl('buyer-info-detail')
-                    ->setData([
-                        'identificator' => $phone
-                    ])
-                    ->send();
+        $data = $this->sendRequest('buyer-info-detail', ['identificator' => $phone]);
 
-        $data = $response->data;
         $success = $data['success'];
 
         $this->log($success);
@@ -64,16 +66,14 @@ class LoyaltyApi extends Component
     public function register($user)
     {
         $phone = $this->getClearedPhone($user->phone);
-        $response = $this
-                    ->getHttpClient()
-                    ->setUrl('buyer-register')
-                    ->setData([
-                        'phone' => $phone,
-                        'name' => $user->username,
-                        'email' => $user->email
-                    ])
-                    ->send();
-        $data = $response->data;
+        $data = $this
+                ->sendRequest('buyer-register', 
+                [
+                    'phone' => $phone,
+                    'name' => $user->username,
+                    'email' => $user->email
+                ]);
+
         $success = $data['success'];
         $this->log('[loyalty] '.$data);
         if ($success == False) {
@@ -85,13 +85,60 @@ class LoyaltyApi extends Component
     // buyer-edit request
     public function editBuyer($user)
     {
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        $phone = $this->getClearedPhone($user->phone);
+        $data = $this
+                ->sendRequest('buyer-edit', 
+                [
+                    'phone' => $phone,
+                    'name' => $user->username,
+                    'email' => $user->email
+                ]);
+
+        $success = $data['success'];
+        $this->log('[loyalty] '.$data);
+        if ($success == False) {
+            Yii::error($data['error_description']);
+        }
+        return $data;
     }
 
     // write-off-request request
-    public function getWriteOff($id)
+    public function getWriteOff($order)
     {
-        throw new NotFoundHttpException('Запрошенная вами страница не существует.');
+        $user -> $order->user;
+        $phone = $this->getClearedPhone($user->phone);
+
+        $items = [];
+
+        foreach ($cart->getItems() as $item) {
+            $product = $item->getProduct();
+            $quantity = $item->getQuantity();
+            $cost = $item->getCost();
+            array_push($items, {
+                'amount' => $quantity * $cost,
+                'quantity' => $quantity,
+                'cost' => $cost,
+                'name' => $product->title,
+                'external_item_id' => $product->id
+            });
+        }
+
+        $body = [
+            'phone' => $phone,
+            'external_purchase_id' => $order->id,
+            'write_off_bonus' => $order->getBonuses(),
+            'items' => $items
+        ]
+
+        $data = $this->sendRequest('write-off-request', $body);
+
+
+        $success = $data['success'];
+        $this->log('[loyalty] '.$data);
+        if ($success == False) {
+            Yii::error($data['error_description']);
+        }
+        return $data;
     }
 
     // purchase request
@@ -122,15 +169,8 @@ class LoyaltyApi extends Component
     public function sendRegisterCode($phone)
     {
         $phone = $this->getClearedPhone($phone);
-        $response = $this
-                ->getHttpClient()
-                ->setUrl('send-register-code')
-                ->setData([
-                    'phone' => $phone
-                ])
-                ->send();
+        $data = $this->sendRequest('send-register-code', ['phone' => $phone]);
 
-        $data = $response->data;
         $success = $data['success'];
         $this->log($success.''.$phone);
         if ($success == False) {
@@ -149,15 +189,13 @@ class LoyaltyApi extends Component
     public function verifyConfirmationCode($phone, $code)
     {
         $phone = $this->getClearedPhone($phone);
-        $response = $this
-                ->getHttpClient()
-                ->setUrl('verify-confirmation-code')
-                ->setData([
+        $data = $this
+                ->sendRequest('verify-confirmation-code', 
+                [
                     'phone' => $phone,
                     'code' => $code
-                ])
-                ->send();
-        $data = $response->data;
+                ]);
+
         $success = $data['success'];
         $this->log($success.''.$code);
         if ($success == False) {
