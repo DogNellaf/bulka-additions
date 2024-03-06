@@ -128,12 +128,7 @@ class LoyaltyApi extends Component
         ];
 
         $data = $this->sendRequest('write-off-request', $body);
-
-        $success = $data['success'];
         $this->log('[loyalty] '.$data);
-        if ($success == False) {
-            Yii::error($data['error_description']);
-        }
         return $data;
     }
 
