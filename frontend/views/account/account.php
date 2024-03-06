@@ -385,14 +385,14 @@ $user = Yii::$app->user->identity;
                                         <?= $loyalty['group_name']; ?>
                                     </div>
                                 </div>
-                                <div class="info-block">
+                                <!-- <div class="info-block">
                                     <div class="title">
                                         Кэшбек
                                     </div>
                                     <div class="value">
-                                        2%
+                                        НЕТ ДАННЫХ
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="info-block">
                                     <div class="title">
                                         Баланс баллов
@@ -444,28 +444,25 @@ $user = Yii::$app->user->identity;
                                                 Сумма
                                             </div>
                                         </div>
-                                        <div class="info-row">
-                                            <div class="col">
-                                                10.04.2023
-                                            </div>
-                                            <div class="col">
-                                                Начисление
-                                            </div>
-                                            <div class="col inc-col">
-                                                + 1 000
-                                            </div>
-                                        </div>
-                                        <div class="info-row">
-                                            <div class="col">
-                                                09.04.2023
-                                            </div>
-                                            <div class="col">
-                                                Списание
-                                            </div>
-                                            <div class="col dec-col">
-                                                - 500
-                                            </div>
-                                        </div>
+                                        <?php foreach ($loyalty['transactions'] as $transaction) : ?>
+                                            <?php if ($transaction['type'] == "write on" || $transaction['type'] == "write off"): ?>
+                                                <div class="info-row">
+                                                    <div class="col">
+                                                        <?= $transaction['date']; ?>
+                                                    </div>
+                                                    <div class="col">
+                                                        <?= $transaction['type']; ?>
+                                                    </div>
+                                                    <div class="col inc-col">
+                                                        <?php if ($transaction['type'] == "write on"): ?>
+                                                            <?= $transaction['bonus_present_write_on']; ?>
+                                                        <?php elseif (!$cart->isEnoughItemsQty()): ?>
+                                                            <?= $transaction['bonus_present_write_off']; ?>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>
