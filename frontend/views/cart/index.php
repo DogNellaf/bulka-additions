@@ -198,7 +198,7 @@ $cost_module = \common\entities\Modules::findOne(9);
                         <form action="<?= Url::to(['cart/bonuses']) ?>" method="POST">
                             <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
                             <p>
-                                Доступно бонусов: <strong>4 449</strong>
+                                Доступно бонусов: <strong><?= $bonuses['balance'] ?></strong>
                             </p>
                             <div class="bonuses-block">
                                 Списать:
@@ -213,10 +213,10 @@ $cost_module = \common\entities\Modules::findOne(9);
                                         $(".js-range-slider").ionRangeSlider({
                                             type: "single",
                                             min: 0,
-                                            max: 4449,
+                                            max: <?= $bonuses['balance'] ?>,
                                             from: <?= $cart->getBonuses() | 0 ?>,
                                             grid: true,
-                                            from_max: 750,      // set max position for FROM handle
+                                            from_max: <?= $bonuses['write_off_available'] ?>,      // set max position for FROM handle
                                             onStart: function (data) {
                                                 bonuses.value = slider.value;
                                             },
@@ -231,7 +231,7 @@ $cost_module = \common\entities\Modules::findOne(9);
                                 </a>
                             </div>
                             <div class="tip">
-                                Возможно списать до 20% от суммы заказа
+                                <?= $bonuses['print_on_precheck'] ?>
                             </div>
                         </form>
                     </div>

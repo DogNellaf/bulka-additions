@@ -28,12 +28,19 @@ class CartController extends FrontendController
 
     public function actionIndex()
     {
-        if (!$this->cart->getItems()) {
+        $cart = $this->cart;
+        if (!$cart->getItems()) {
             Yii::$app->session->setFlash('error', 'Корзина пуста.');
             return $this->redirect(['catalog/index']);
         }
+
+        $loyalty = new LoyaltyApi();
+        $user = Yii::$app->user->identity;
+        $bonuses_amount = $loyalty->getWriteOff($cart, $user);
+
         return $this->render('index', [
-            'cart' => $this->cart,
+            'cart' => $cart,
+            'bonuses' => $bonuses_amount
         ]);
     }
 
@@ -205,14 +212,15 @@ class CartController extends FrontendController
 
     public function actionCheckout($message = null)
     {
-        if (!$this->cart->getItems()) {
+        $cart = $this->cart;
+        if (!$cart->getItems()) {
             Yii::$app->session->setFlash('error', $message . 'Корзина пуста.');
             return $this->redirect(['catalog/index']);
         }
         if ($message) {
             Yii::$app->session->setFlash('error', $message);
         }
-        $form = new OrderForm($this->cart);
+        $form = new OrderForm($cart);
         /*
         if (Yii::$app->user->isGuest) {
             $form->scenario = 'create';
@@ -220,9 +228,9 @@ class CartController extends FrontendController
         */
         if ($form->load(Yii::$app->request->post())) {
             if ($form->validate()) {
-                if ($this->cart->getNotEnoughQtyItems()) {
+                if ($cart->getNotEnoughQtyItems()) {
                     $message = 'Недостаточное количество: <br>';
-                    foreach ($this->cart->getNotEnoughQtyItems() as $notEnoughQtyItem) {
+                    foreach ($cart->getNotEnoughQtyItems() as $notEnoughQtyItem) {
                         $message .= $notEnoughQtyItem['title'];
                         $message .= ($notEnoughQtyItem['weight']) ? ' - ' . $notEnoughQtyItem['weight'] : '';
                         $message .= ' : ' . $notEnoughQtyItem['min_qty'] . 'шт.';
@@ -232,11 +240,22 @@ class CartController extends FrontendController
                     Yii::$app->session->setFlash('error', $message);
                     return $this->redirect(['cart/index']);
                 }
-                if (!$this->cart->isAllowedCost()) {
+                if (!$cart->isAllowedCost()) {
                     Yii::info('Not allowed cost', __METHOD__ . ' orders_creating');
                     Yii::$app->session->setFlash('error', $message . 'Сумма заказа слишком низкая.');
                     return $this->redirect(['cart/index']);
                 }
+
+                $loyalty = new LoyaltyApi();
+                $user = Yii::$app->user->identity;
+                $maxWriteOff = $loyalty->getWriteOff($cart, $user)['write_off_available']
+                if ($cart->getBonuses() > $maxWriteOff) {
+                    Yii::info('Not allowed bonuses write off', __METHOD__ . ' orders_creating');
+                    Yii::$app->session->setFlash('error', $message . 'Списано бонусов выше допустимого предела.');
+                    return $this->redirect(['cart/index']);                    
+                }
+                
+
                 if ($order = $form->create()) {
                     Yii::info("order #{$order->id} created", __METHOD__ . ' orders_creating');
                     Yii::info($order, __METHOD__ . ' orders_creating');
@@ -273,6 +292,16 @@ class CartController extends FrontendController
                     } elseif ($order->pay_method == 'contract') {
 
                     }
+                    
+                    $data = $loyalty->purchase($order);
+                    $success = $data['success'];
+
+                    if (!$success) {
+                        Yii::error('Loyalty API Error', __METHOD__ . ' orders_creating');
+                        Yii::$app->session->setFlash('error', $message . $data['error_description']);
+                        return $this->redirect(['cart/index']);                        
+                    }
+
                     Yii::info("order #{$order->id} success no-online checkout", __METHOD__ . ' orders_creating');
                     return $this->redirect(['cart/end-payment', 'localOrderId' => $order->id]);
                 }
