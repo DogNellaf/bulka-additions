@@ -153,7 +153,7 @@ class LoyaltyApi extends Component
                 'quantity' => $quantity,
                 'cost' => $cost,
                 'name' => $product->title,
-                'external_item_id' => $product->id
+                'external_item_id' => $product->id.''
             ]);
         }
 
