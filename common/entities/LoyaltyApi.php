@@ -141,7 +141,7 @@ class LoyaltyApi extends Component
     public function purchase($order)
     {
         $user = $order->user;
-        $cart -> $order->cart;
+        $cart = $order->cart;
         $phone = $this->getClearedPhone($user->phone);
 
         $items = [];
@@ -185,8 +185,8 @@ class LoyaltyApi extends Component
     // edit-purchase request
     public function editPurchase($order)
     {
-        $user -> $order->user;
-        $cart -> $order->cart;
+        $user = $order->user;
+        $cart = $order->cart;
         $phone = $this->getClearedPhone($user->phone);
 
         $items = [];
