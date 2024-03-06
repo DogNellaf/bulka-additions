@@ -83,10 +83,11 @@ class LoyaltyController extends FrontendController
 
         $result = $loyalty->verifyConfirmationCode($user->phone, $code);
 
-        if ($result == False) {
+        if (!$result) {
             return $this->redirect('/loyalty/register');
         }
 
+        Yii::$app->session->setFlash('success', 'Вы были успешно зарегистрированы в бонусной системе');
         return $this->redirect('/account/');
     }
 }
