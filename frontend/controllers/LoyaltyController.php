@@ -56,7 +56,7 @@ class LoyaltyController extends FrontendController
         }
 
         if ($user->phone == null) {
-            Yii::$app->session->setFlash('error', 'Необходимо указать номер телефона'); //$this->cart->getBonuses()
+            Yii::$app->session->setFlash('error', 'Необходимо указать номер телефона');
             return $this->redirect(Yii::$app->request->referrer);
         }
 
@@ -70,9 +70,9 @@ class LoyaltyController extends FrontendController
     {
         $loyalty = new LoyaltyApi();
         $user = Yii::$app->user->identity;
-
         if ($this->checkRegistered($user->phone) == True) {
-            throw new ForbiddenHttpException('Вы уже были зарегистрированы');
+            Yii::$app->session->setFlash('error', 'Вы уже были зарегистрированы');
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
         $request = Yii::$app->request;
