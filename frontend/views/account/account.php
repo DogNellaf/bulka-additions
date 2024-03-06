@@ -438,31 +438,39 @@ $user = Yii::$app->user->identity;
                                                 Дата
                                             </div>
                                             <div class="col">
-                                                Дейстие
+                                                Действие
                                             </div>
                                             <div class="col">
                                                 Сумма
                                             </div>
                                         </div>
-                                        <?php foreach ($loyalty['transactions'] as $transaction) : ?>
-                                            <?php if ($transaction['type'] == "write on" || $transaction['type'] == "write off"): ?>
-                                                <div class="info-row">
-                                                    <div class="col">
-                                                        <?= $transaction['date']; ?>
+                                        <?php if (count($loyalty['transactions']) != 0): ?>
+                                            <?php foreach ($loyalty['transactions'] as $transaction) : ?>
+                                                <?php if ($transaction['type'] == "write on" || $transaction['type'] == "write off"): ?>
+                                                    <div class="info-row">
+                                                        <div class="col">
+                                                            <?= $transaction['date']; ?>
+                                                        </div>
+                                                        <div class="col">
+                                                            <?= $transaction['type']; ?>
+                                                        </div>
+                                                        <div class="col inc-col">
+                                                            <?php if ($transaction['type'] == "write on"): ?>
+                                                                <?= $transaction['bonus_present_write_on']; ?>
+                                                            <?php elseif (!$cart->isEnoughItemsQty()): ?>
+                                                                <?= $transaction['bonus_present_write_off']; ?>
+                                                            <?php endif; ?>
+                                                        </div>
                                                     </div>
-                                                    <div class="col">
-                                                        <?= $transaction['type']; ?>
-                                                    </div>
-                                                    <div class="col inc-col">
-                                                        <?php if ($transaction['type'] == "write on"): ?>
-                                                            <?= $transaction['bonus_present_write_on']; ?>
-                                                        <?php elseif (!$cart->isEnoughItemsQty()): ?>
-                                                            <?= $transaction['bonus_present_write_off']; ?>
-                                                        <?php endif; ?>
-                                                    </div>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <div class="info-row">
+                                                <div class="col">
+                                                    История отсутствует
                                                 </div>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
