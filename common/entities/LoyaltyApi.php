@@ -126,7 +126,7 @@ class LoyaltyApi extends Component
             'phone' => $phone,
             'write_off_bonus' => $card->getBonuses(),
             'items' => $items
-        ]
+        ];
 
         $data = $this->sendRequest('write-off-request', $body);
 
