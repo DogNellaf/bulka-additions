@@ -123,7 +123,7 @@ class LoyaltyApi extends Component
 
         $body = [
             'phone' => $phone,
-            'write_off_bonus' => $card->getBonuses(),
+            'write_off_bonus' => $cart->getBonuses(),
             'items' => $items
         ];
 
