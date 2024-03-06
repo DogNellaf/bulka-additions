@@ -113,13 +113,13 @@ class LoyaltyApi extends Component
             $product = $item->getProduct();
             $quantity = $item->getQuantity();
             $cost = $item->getCost();
-            array_push($items, {
+            array_push($items, [
                 'amount' => $quantity * $cost,
                 'quantity' => $quantity,
                 'cost' => $cost,
                 'name' => $product->title,
                 'external_item_id' => $product->id
-            });
+            ]);
         }
 
         $body = [
