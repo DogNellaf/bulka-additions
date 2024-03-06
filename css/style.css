@@ -3777,7 +3777,7 @@ button {
 }
 .loyalty-grid {
   display: grid;
-  grid-template-columns: auto 250px;
+  /* grid-template-columns: auto 250px; */
   grid-column-gap: 30px;
   grid-row-gap: 20px;
   width: 1100px;
